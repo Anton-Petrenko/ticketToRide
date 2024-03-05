@@ -1,0 +1,24 @@
+TICKET TO RIDE
+1. Random
+2. Random
+--------------------
+
+TURN -1
+CARDS UP ['YELLOW', 'PINK', 'BLUE', 'GREEN', 'BLUE']
+ PLAYER 1 ['WHITE', 'YELLOW', 'BLACK', 'GREEN'], destinations [], trains 45
+   dealt [['TORONTO', '10', 'MIAMI'], ['PORTLAND', '17', 'NASHVILLE'], ['BOSTON', '12', 'MIAMI']]
+   keeps [['TORONTO', '10', 'MIAMI'], ['PORTLAND', '17', 'NASHVILLE'], ['BOSTON', '12', 'MIAMI']]
+
+TURN 0
+CARDS UP ['YELLOW', 'PINK', 'BLUE', 'GREEN', 'BLUE']
+ PLAYER 2 ['BLACK', 'WHITE', 'BLACK', 'WHITE'], destinations [], trains 45
+   dealt [['CHICAGO', '9', 'SANTA FE'], ['CHICAGO', '7', 'NEW ORLEANS'], ['VANCOUVER', '20', 'MONTREAL']]
+   keeps [['CHICAGO', '7', 'NEW ORLEANS'], ['VANCOUVER', '20', 'MONTREAL']]
+
+TURN 1
+CARDS UP ['YELLOW', 'PINK', 'BLUE', 'GREEN', 'BLUE']
+ PLAYER 1 ['WHITE', 'YELLOW', 'BLACK', 'GREEN'], destinations [['TORONTO', '10', 'MIAMI'], ['PORTLAND', '17', 'NASHVILLE'], ['BOSTON', '12', 'MIAMI']], trains 45
+
+TURN 2
+CARDS UP ['YELLOW', 'PINK', 'BLUE', 'GREEN', 'BLUE']
+ PLAYER 2 ['BLACK', 'WHITE', 'BLACK', 'WHITE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['VANCOUVER', '20', 'MONTREAL']], trains 45

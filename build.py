@@ -17,7 +17,6 @@ class Game:
         self.logs = list[str]
         self.mapName = map
         self.board = nx.MultiGraph
-        self.currentBoard = nx.MultiGraph
         self.trainCarDeck = deque[str]
         self.faceUpCards = list[str]
         self.destinationsDeck = deque[list[str]]
@@ -27,8 +26,10 @@ class Game:
             raise ValueError("There must be between 2-4 players.")
         random.shuffle(self.players)
         self.turn = 1 - len(players)
+        self.actionMap = dict[int, list]
         self.build()
         self.init()
+        self.getActionMap()
         self.play()
         if self.doLogs == True:
             self.log()
@@ -44,11 +45,6 @@ class Game:
         for path in paths:
             board.add_edge(path[0], path[3], weight=int(path[1]), color=path[2], owner="")
         self.board = board
-
-        curGame = nx.MultiGraph()
-        nodes = list(board.nodes())
-        for node in nodes:
-            curGame.add_node(node)
 
         # nx.draw_networkx(curGame, pos=nx.spring_layout(curGame))
         # pyplot.show()
@@ -75,7 +71,7 @@ class Game:
             for _ in range(4):
                 player.hand_trainCards.append(self.trainCarDeck.pop())
                 
-            player.turnOrder = i + 1
+            player.turnOrder = i
 
             if self.doLogs == True:
                 logStr = logStr + f"{player.turnOrder}. {player.name}\n"
@@ -83,6 +79,40 @@ class Game:
         
         if self.doLogs == True:
             self.logs = ["TICKET TO RIDE\n", logStr, "--------------------\n"]
+    
+    def getActionMap(self):
+        """
+        Returns the action map of the current game. The action map maps integers to the specific actions for that action. For example, an agent may choose to place a train route but must know all possibilities available to it - which depends on the map. Thus, this function is called per game object as it will be specific to each game/map. Can also be viewed as a "valid actions" tracker.
+
+        Turn action indexes:
+        0 - Place Trains (0, list[tuple])
+        1 - Draw (Face Up) (1, list[str])
+        2 - Draw (Face Down) (2, deque[str])
+        3 - Draw (Destination Cards) (3, deque[list[str]])
+        """
+        self.actionMap = { 0: list(self.board.edges.data(keys=True)), 1: self.faceUpCards, 2: self.trainCarDeck, 3: self.destinationsDeck }
+
+    def performAction(self, player: Agent):
+        """
+        Does complete handling of all actions:
+
+        * Will do valid action checks
+
+        * Will re-query the agent on follow up decisions
+
+        * Responsible for updating the game state after each player's turn
+        """
+        action, specific = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap)
+
+        # Agent wants to place trains
+        if action == 0:
+            
+            routeToPlace = self.actionMap[action][specific]
+            routeMetadata = routeToPlace[3]
+            print(f"Wants to place ")
+            print(locals()['routeMetadata']['owner'])
+            # Availability check
+            
 
     def play(self):
         """
@@ -96,7 +126,7 @@ class Game:
                     addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}\n"]
                     self.logs = self.logs + addLogs
 
-                # Starting the game
+                # Starting the game (deal out initial destination cards)
                 if self.turn < 1:
 
                     destinationCard_deal = [self.destinationsDeck.pop(), self.destinationsDeck.pop(), self.destinationsDeck.pop()]
@@ -114,12 +144,14 @@ class Game:
                         if i not in taken:
                             self.destinationsDeck.appendleft(destinationCard_deal[i])
 
+                    # Update the action map
+                    self.getActionMap()
+
                     self.turn += 1
                     
                 else:
                     
-                    validStates = player.turn(self.board, self.currentBoard, self.faceUpCards)
-                    print(validStates)
+                    self.performAction(player)
 
                     self.gameOver = True
                     self.turn += 1

@@ -9,6 +9,7 @@ def getPaths(map: str) -> list[list[str]]:
     for path in lines:
         data = re.search('(^\D+)(\d)\W+(\w+)\W+(.+)', path)
         paths.append([data.group(1).strip(), data.group(2).strip(), data.group(3).strip(), data.group(4).strip()])
+
     return paths
 
 def getDestinationCards(map: str) -> list[list[str]]:

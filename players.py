@@ -17,16 +17,19 @@ class Agent:
         """
         pass
 
-    def validMoves(self, board: nx.MultiGraph, currentBoard: nx.MultiGraph, faceUpCards: list[str]) -> list[int]:
+    def turn(self, board: nx.MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None) -> tuple[int, int]:
         """
-        Returns a list of moves that are valid given the board, current board, and face up cards
-        """
-        return [1, 2]
+        Returns a number corresponding to the desired turn action to make given the template board, the current board, the face up cards, the points of each player, the size of each players hand, how many destination cards the other players have, and the action map. Optionally, use i to request a specific action (ex. for a card draw you must draw 2 cards, this would be done by requesting the next card draw to fulfill the second draw requirement)
+        
+        Returns a tuple of (turn action, specific action), ex. (Draw Card, ['RED'])
 
+        Turn action indexes:
+        0 - Place Trains
+        1 - Draw (Face Up)
+        2 - Draw (Face Down)
+        3 - Draw (Destination Cards)
 
-    def turn(self, board: nx.MultiGraph, currentBoard: nx.MultiGraph, faceUpCards: list[str]) -> int:
-        """
-        Given the board (for info), the current game board, and the cards showing face up, return a move to make (int)
+        Specific actions depend on the map, but generally will be an iterable describing specifics of the chosen action
         """
 
 class Random(Agent):
@@ -39,34 +42,17 @@ class Random(Agent):
             self.hand_destinationCards.append(deal[cardNum])
         return selections
     
-    def turn(self, board: nx.MultiGraph, currentBoard: nx.MultiGraph, faceUpCards: list[str]) -> int:
-        return self.validMoves(board, currentBoard, faceUpCards)
+    def turn(self, board: MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None) -> tuple[int, int]:
+        if i == None:
+            i = randint(0, 3)
+        i = 0 # hardcoded
+        move = (i, randint(0, len(actionMap[i])-1))
+        return move
+
 
 class Human(Agent):
     def __init__(self) -> None:
         Agent.__init__(self, "Human")
     
     def firstTurn(self, deal: list[list[str]]) -> list[int]:
-        for i, card in enumerate(deal):
-            print(f"{i}. {card}")
-
-        choice = int
-        choices = []
-
-        while True:
-            choice = input("Enter first destination card choice: ")
-            try:
-                if 0 <= int(choice) < len(deal):
-                    choices.append(int(choice))
-                    break
-            except:
-                pass
-        
-        while True:
-            choice2 = input("Enter second destination card choice: ")
-            try:
-                if 0 <= int(choice2) < len(deal) and choice2 != choice:
-                    choices.append(int(choice2))
-                    break
-            except:
-                pass
+        pass

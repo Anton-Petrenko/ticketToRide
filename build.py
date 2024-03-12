@@ -61,7 +61,7 @@ class Game:
         destination_deck = deque(destination_deck)
         self.destinationsDeck = destination_deck
     
-    def init(self):
+    def init(self) -> None:
         """
         Initializes the game board and players for playing to begin.
         """
@@ -80,9 +80,11 @@ class Game:
         if self.doLogs == True:
             self.logs = ["TICKET TO RIDE\n", logStr, "--------------------\n"]
     
-    def getActionMap(self):
+    def getActionMap(self) -> None:
         """
-        Returns the action map of the current game. The action map maps integers to the specific actions for that action. For example, an agent may choose to place a train route but must know all possibilities available to it - which depends on the map. Thus, this function is called per game object as it will be specific to each game/map. Can also be viewed as a "valid actions" tracker.
+        Returns the action map of the current game. The action map maps integers to the specific actions for that action. For example, an agent may choose to place a train route but must know all possibilities available to it - which depends on the map. Thus, this function is called per game object as it will be specific to each game/map. 
+
+        NOTE: This does not update per move, it simply provides indexes for each possible action in a game for the agents to use.
 
         Turn action indexes:
         0 - Place Trains (0, list[tuple])
@@ -91,7 +93,90 @@ class Game:
         3 - Draw (Destination Cards) (3, deque[list[str]])
         """
         self.actionMap = { 0: list(self.board.edges.data(keys=True)), 1: self.faceUpCards, 2: self.trainCarDeck, 3: self.destinationsDeck }
+    
+    def cardsForPlacing(self, player: Agent, actionDistribution: list[int], cardDistribution: list[str]) -> tuple[list[str], tuple]:
+        """
+        Takes the distributions for placing trains and turns it into a readable move for the game. Uses the player object, actionDistribution, and cardDistribution.
 
+        NOTE: It will check all possible colors first, if nothing works, it will then check (from least to most desired) if wilds can fill up the rest.
+
+        Outputs the cards to use in a list (from the agent) and the route as the given tuple from networkx
+        """
+        # 1. See if the player can afford that action
+        # 2. See if the edge is taken
+        # 3. If both true, return
+        canAfford = False
+        isTaken = False
+        cards = list[str]
+        route = None
+
+        for action in actionDistribution:
+            route = self.actionMap[0][action]
+            isTaken = True if route[3].get('owner') != '' else False # see if route is taken
+
+            # Debug Log
+            if self.debug and isTaken:
+                self.logs = self.logs + [f"    wanted {route} but taken."]
+
+            if isTaken:
+                continue
+
+            print(route)
+            print(f"Player cards: {player.hand_trainCards}")
+
+            # see if player has the cards to place route
+            if route[3].get('color') == 'GRAY':
+                
+                playerWildNum = player.hand_trainCards.count('WILD')
+                wildFound = False
+
+                for color in reversed(cardDistribution):
+
+                    if wildFound == False and color == 'WILD':
+                        wildFound = True
+                        continue
+                    playerColorNum = player.hand_trainCards.count(color)
+
+                    if wildFound:
+                        if playerWildNum >= route[3].get('weight'):
+                            cards = list(repeat('WILD', route[3].get('weight')))
+                            canAfford = True
+                            break
+                        elif playerWildNum + playerColorNum == route[3].get('weight'):
+                            cards = list(repeat('WILD', playerWildNum)) + list(repeat(color, playerColorNum))
+                            canAfford = True
+                            break
+                        elif playerWildNum + playerColorNum > route[3].get('weight'):
+                            playerColorNum = route[3].get('weight') - playerWildNum
+                            cards = list(repeat('WILD', playerWildNum)) + list(repeat(color, playerColorNum))
+                            canAfford = True
+                            break
+                    else:
+                        if playerColorNum >= route[3].get('weight'):
+                            cards = list(repeat(color, route[3].get('weight')))
+                            canAfford = True
+                            print("4")
+                            break
+            elif player.hand_trainCards.count(route[3].get('color')) >= route[3].get('weight'):
+                cards = list(repeat(player.hand_trainCards.count(route[3].get('color')), route[3].get('weight')))
+                canAfford = True
+            
+            if self.debug and canAfford == False:
+                self.logs = self.logs + [f"    wanted {route} but lacking cards."]
+
+            if canAfford == False:
+                print(f"wanted {route} but lacking cards.")
+
+            if canAfford:
+                break
+        
+
+    def placeTrains(self, player: Agent, useCards: list[str], route: tuple) -> None:
+        """
+        Places trains for the given player. Uses the player object, the cards it wants to use ['BLUE', 'BLUE', 'WILD'] and the edge tuple directly from Multigraph that contains the keys at index 3.
+        """
+        
+    
     def performAction(self, player: Agent):
         """
         Does complete handling of all actions:
@@ -102,17 +187,12 @@ class Game:
 
         * Responsible for updating the game state after each player's turn
         """
-        action, specific = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap)
+        action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap)
 
         # Agent wants to place trains
         if action == 0:
-            
-            routeToPlace = self.actionMap[action][specific]
-            routeMetadata = routeToPlace[3]
-            print(f"Wants to place ")
-            print(locals()['routeMetadata']['owner'])
-            # Availability check
-            
+            cards, route = self.cardsForPlacing(player, actionDistribution, cardDistribution)
+            self.placeTrains(player, cards, route)
 
     def play(self):
         """
@@ -143,9 +223,6 @@ class Game:
                     for i in range(3):
                         if i not in taken:
                             self.destinationsDeck.appendleft(destinationCard_deal[i])
-
-                    # Update the action map
-                    self.getActionMap()
 
                     self.turn += 1
                     

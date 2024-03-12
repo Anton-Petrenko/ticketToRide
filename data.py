@@ -23,3 +23,6 @@ def getDestinationCards(map: str) -> list[list[str]]:
         cards.append([data.group(1).strip(), data.group(2).strip(), data.group(3).strip()])
     
     return cards
+
+def listColors() -> list[str]:
+    return ['PINK', 'WHITE', 'BLUE', 'YELLOW', 'ORANGE', 'BLACK', 'RED', 'GREEN', 'WILD']

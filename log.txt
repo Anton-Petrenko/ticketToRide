@@ -4,21 +4,21 @@ TICKET TO RIDE
 --------------------
 
 TURN -1
-CARDS UP ['WILD', 'YELLOW', 'GREEN', 'BLUE', 'GREEN']
- PLAYER 0 ['WILD', 'BLUE', 'WHITE', 'GREEN'], destinations [], trains 45
-   dealt [['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['HELENA', '8', 'LOS ANGELES']]
-   keeps [['HELENA', '8', 'LOS ANGELES'], ['DALLAS', '11', 'NEW YORK']]
+CARDS UP ['RED', 'WILD', 'WILD', 'WHITE', 'ORANGE']
+ PLAYER 0 ['BLACK', 'WILD', 'ORANGE', 'RED'], destinations [], trains 45
+   dealt [['DULUTH', '8', 'HOUSTON'], ['KANSAS CITY', '5', 'HOUSTON'], ['NEW YORK', '6', 'ATLANTA']]
+   keeps [['DULUTH', '8', 'HOUSTON'], ['KANSAS CITY', '5', 'HOUSTON'], ['NEW YORK', '6', 'ATLANTA']]
 
 TURN 0
-CARDS UP ['WILD', 'YELLOW', 'GREEN', 'BLUE', 'GREEN']
- PLAYER 1 ['YELLOW', 'PINK', 'BLACK', 'BLACK'], destinations [], trains 45
-   dealt [['SAN FRANCISCO', '17', 'ATLANTA'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']]
-   keeps [['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']]
+CARDS UP ['RED', 'WILD', 'WILD', 'WHITE', 'ORANGE']
+ PLAYER 1 ['WILD', 'WHITE', 'WHITE', 'WILD'], destinations [], trains 45
+   dealt [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['PORTLAND', '11', 'PHOENIX']]
+   keeps [['LOS ANGELES', '21', 'NEW YORK'], ['PORTLAND', '11', 'PHOENIX']]
 
 TURN 1
-CARDS UP ['WILD', 'YELLOW', 'GREEN', 'BLUE', 'GREEN']
- PLAYER 0 ['WILD', 'BLUE', 'WHITE', 'GREEN'], destinations [['HELENA', '8', 'LOS ANGELES'], ['DALLAS', '11', 'NEW YORK']], trains 45
+CARDS UP ['RED', 'WILD', 'WILD', 'WHITE', 'ORANGE']
+ PLAYER 0 ['BLACK', 'WILD', 'ORANGE', 'RED'], destinations [['DULUTH', '8', 'HOUSTON'], ['KANSAS CITY', '5', 'HOUSTON'], ['NEW YORK', '6', 'ATLANTA']], trains 45
 
 TURN 2
-CARDS UP ['WILD', 'YELLOW', 'GREEN', 'BLUE', 'GREEN']
- PLAYER 1 ['YELLOW', 'PINK', 'BLACK', 'BLACK'], destinations [['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 45
+CARDS UP ['RED', 'WILD', 'WILD', 'WHITE', 'ORANGE']
+ PLAYER 1 ['WILD', 'WHITE', 'WHITE', 'WILD'], destinations [['LOS ANGELES', '21', 'NEW YORK'], ['PORTLAND', '11', 'PHOENIX']], trains 45

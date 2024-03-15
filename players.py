@@ -18,11 +18,11 @@ class Agent:
         """
         pass
 
-    def turn(self, board: nx.MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None) -> tuple[int, list[int], list[str]]:
+    def turn(self, board: nx.MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None, destCardDeal = None) -> tuple[int, list[int], list[str]]:
         """
         Returns a number corresponding to the desired turn action to make given the template board, the current board, the face up cards, the points of each player, the size of each players hand, how many destination cards the other players have, and the action map. Optionally, use i to request a action desire (ex. for a card draw you must draw 2 cards, this would be done by requesting the next card draw to fulfill the second draw requirement)
         
-        Returns a tuple of (turn action, action desire, card desire), where action desire is an iterable sequence of indexes corresponding to the actionMap that will be checked left to right for valid moves. 
+        Returns a tuple of (turn action, action desire, card desire), where action desire is an iterable sequence of indexes corresponding to the actionMap that will be checked left to right for valid moves. NOTE: the action distribution is only relevant for drawing destination cards and placing trains.
         
         Card desires is an iterable sequence of card color strings that represents the need for each color of card [highest, ..., lowest], lowest need means you no longer need this card and should be considered first in placing.
 
@@ -45,10 +45,12 @@ class Random(Agent):
             self.hand_destinationCards.append(deal[cardNum])
         return selections
     
-    def turn(self, board: MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None) -> tuple[int, list[int], list[str]]:
+    def turn(self, board: MultiGraph, faceUpCards: list[str], playerPoints: list[int], playerHandSizes: list[int], playerDestSizes: list[int], actionMap: dict[int, list], i = None, destCardDeal = None) -> tuple[int, list[int], list[str]]:
         if i == None:
             i = randint(0, 3)
-        i = 0 # hardcoded for testing, it will always want to place trains
+        else:
+            shuffle(i)
+            i = i[0]
         actionDistribution = [x for x in range(0, len(actionMap[i]), 1)]
         shuffle(actionDistribution)
         cardsDistribution = listColors()

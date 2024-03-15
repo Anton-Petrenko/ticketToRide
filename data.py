@@ -1,5 +1,8 @@
 import re
 
+pointsByLength = {1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15}
+colors = {0: 'red', 1: 'blue', 2: 'orange', 3: 'purple'}
+
 def getPaths(map: str) -> list[list[str]]:
     """
     Takes a map name and returns a list of paths between cities where each item is an array [city1, length, color, city2] as strings

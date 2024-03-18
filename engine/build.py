@@ -1,11 +1,12 @@
 import random
 import networkx as nx
+import engine
 from copy import deepcopy
 from itertools import repeat
 from matplotlib import pyplot
 from collections import deque
-from players import Random, Human, Agent
-from data import getPaths, getDestinationCards, pointsByLength, colors
+from engine.players import Agent
+from engine.data import getPaths, getDestinationCards, pointsByLength, colors
 
 """
 TODO:
@@ -19,6 +20,16 @@ class Game:
     def __init__(self, map: str, players: list[Agent], logs: bool, debug=False, drawGame=False) -> None:
         """
         The Ticket to Ride game engine in python.
+
+        Map = a string representing the name of the map to play on (USA only)
+
+        Players = a list of 2-4 players from engine.players to use for the game
+
+        Logs = a boolean to enable printing of game logs
+
+        Debug = a boolean to enable more descriptive game logs
+
+        drawGame = a boolean to see a loose representation of the ending game map
         """
         self.debug = debug
         self.doLogs = logs
@@ -51,26 +62,22 @@ class Game:
     
     def build(self) -> None:
         """
-        Builds a networkx MultiGraph representation of the map and the decks to be used as queues
-        Note: The queue implementation requires that you appendleft() if adding and pop() if drawing a card
+        Builds a networkx MultiGraph representation of the map and the decks to be used as deques
         """
 
-        board = nx.MultiGraph()
-        paths = getPaths(self.mapName)
-        for path in paths:
-            board.add_edge(path[0], path[3], weight=int(path[1]), color=path[2], owner="")
-        self.board = board
-
-        # nx.draw_networkx(curGame, pos=nx.spring_layout(curGame))
-        # pyplot.show()
-            
-        traincar_deck = list(repeat("PINK", 12)) + list(repeat("WHITE", 12)) + list(repeat("BLUE", 12)) + list(repeat("YELLOW", 12)) + list(repeat("ORANGE", 12)) + list(repeat("BLACK", 12)) + list(repeat("RED", 12)) + list(repeat("GREEN", 12)) + list(repeat("WILD", 14))
+        # Build the board
+        self.board = nx.MultiGraph()
+        self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName))
+        
+        # Build the train car deck
+        traincar_deck = ['PINK']*12+['WHITE']*12+['BLUE']*12+['YELLOW']*12+['ORANGE']*12+['BLACK']*12+['RED']*12+['GREEN']*12+['WILD']*14
         random.shuffle(traincar_deck)
-        traincar_deck = deque(traincar_deck)
-        self.trainCarDeck = traincar_deck
+        self.trainCarDeck = deque(traincar_deck)
 
+        # Deal the face up cards
         self.faceUpCards = [self.trainCarDeck.pop(), self.trainCarDeck.pop(), self.trainCarDeck.pop(), self.trainCarDeck.pop(), self.trainCarDeck.pop()]
 
+        # Build the destination deck
         destination_deck = getDestinationCards(self.mapName)
         self.destinationCards = deepcopy(destination_deck)
         random.shuffle(destination_deck)
@@ -314,7 +321,7 @@ class Game:
                 self.drawDestinationCards(player, actionDistribution, draw)
             else:
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i)           
-
+    
         # Agent wants to place trains
         if action == 0:
             self.placeTrains(player, actionDistribution, cardDistribution)
@@ -458,6 +465,3 @@ class Game:
     def log(self):
         logs = open("log.txt", "w")
         logs.writelines(self.logs)
-
-agents = [Random(), Random(), Random(), Random()]
-Game("USA", agents, True, debug=False, drawGame=True)

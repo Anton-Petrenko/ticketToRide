@@ -7,7 +7,7 @@ def getPaths(map: str) -> list[list[str]]:
     """
     Takes a map name and returns a list of paths between cities where each item is an array [city1, length, color, city2] as strings
     """
-    lines = open(f"{map}_paths.txt").readlines()
+    lines = open(f"engine/{map}_paths.txt").readlines()
     paths = []
     for path in lines:
         data = re.search('(^\D+)(\d)\W+(\w+)\W+(.+)', path)
@@ -19,7 +19,7 @@ def getDestinationCards(map: str) -> list[list[str]]:
     """
     Takes a map name and returns a list of paths between cities where each item is an array [city1, points, city2] as strings
     """
-    lines = open(f"{map}_destinations.txt").readlines()
+    lines = open(f"engine/{map}_destinations.txt").readlines()
     cards = []
     for card in lines:
         data = re.search('(^\D+)(\d+)\s(.+)', card)

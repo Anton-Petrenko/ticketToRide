@@ -1,7 +1,8 @@
 from random import sample, randint, shuffle
-from data import listColors
+import engine
 import networkx as nx
 from networkx import MultiGraph
+from engine.data import listColors
 
 class Agent:
     def __init__(self, name: str) -> None:

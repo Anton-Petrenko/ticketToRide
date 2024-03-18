@@ -1,550 +1,661 @@
 TICKET TO RIDE
 0. Random
 1. Random
-2. Random
-3. Random
 --------------------
 
-TURN -3
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE'], destinations [], trains 45, points 0
-   dealt [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '16', 'CHICAGO']]
-   keeps [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA']]
-
-TURN -2
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW'], destinations [], trains 45, points 0
-   dealt [['BOSTON', '12', 'MIAMI'], ['DULUTH', '10', 'EL PASO'], ['SAN FRANCISCO', '17', 'ATLANTA']]
-   keeps [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI']]
-
 TURN -1
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 2 ['WHITE', 'PINK', 'BLUE', 'BLACK'], destinations [], trains 45, points 0
-   dealt [['SAULT ST. MARIE', '8', 'NASHVILLE'], ['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON']]
-   keeps [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON']]
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK'], destinations [], trains 45, points 0
+   dealt [['DULUTH', '10', 'EL PASO'], ['DULUTH', '8', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX']]
+   keeps [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON']]
 
 TURN 0
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE'], destinations [], trains 45, points 0
-   dealt [['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['SEATTLE', '9', 'LOS ANGELES']]
-   keeps [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE']]
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD'], destinations [], trains 45, points 0
+   dealt [['WINNIPEG', '12', 'HOUSTON'], ['PORTLAND', '17', 'NASHVILLE'], ['DENVER', '11', 'PITTSBURGH']]
+   keeps [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON']]
 
 TURN 1
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA']], trains 45, points -13
-   picked up ORANGE from face down deck.
-   picked up RED from face down deck.
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON']], trains 45, points -31
+   picked up destination cards: [['PORTLAND', '11', 'PHOENIX'], ['VANCOUVER', '13', 'SANTA FE'], ['HELENA', '8', 'LOS ANGELES']]
+   taking ['VANCOUVER', '13', 'SANTA FE']
 
 TURN 2
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI']], trains 45, points -39
-   picked up destination cards: [['WINNIPEG', '11', 'LITTLE ROCK'], ['HELENA', '8', 'LOS ANGELES'], ['DULUTH', '8', 'HOUSTON']]
-   taking ['DULUTH', '8', 'HOUSTON']
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON']], trains 45, points -23
+   picked up BLUE from face down deck.
+   picked up WHITE from face down deck.
 
 TURN 3
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 2 ['WHITE', 'PINK', 'BLUE', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON']], trains 45, points -19
-   picked up destination cards: [['MONTREAL', '13', 'NEW ORLEANS'], ['CALGARY', '13', 'PHOENIX'], ['PORTLAND', '17', 'NASHVILLE']]
-   taking ['CALGARY', '13', 'PHOENIX']
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE']], trains 45, points -44
+   picked up BLACK from face down deck.
+   picked up WILD from face down deck.
 
 TURN 4
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE']], trains 45, points -43
-   picked up destination cards: [['VANCOUVER', '20', 'MONTREAL'], ['MONTREAL', '9', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE']]
-   taking ['CHICAGO', '9', 'SANTA FE']
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON']], trains 45, points -23
+   picked up WILD from face down deck.
+   picked up YELLOW from face down deck.
 
 TURN 5
-CARDS UP ['YELLOW', 'YELLOW', 'WHITE', 'WILD', 'BLUE']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE', 'ORANGE', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA']], trains 45, points -13
-   picked up ORANGE from face down deck.
-   picked up WHITE from face up deck.
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK', 'BLACK', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE']], trains 45, points -44
+   placed ('NASHVILLE', 'ATLANTA', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['WILD']
 
 TURN 6
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'BLUE', 'ORANGE']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON']], trains 45, points -47
-   picked up BLUE from face down deck.
-   picked up WILD from face down deck.
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON']], trains 45, points -23
+   picked up PINK from face down deck.
+   picked up WHITE from face down deck.
 
 TURN 7
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'BLUE', 'ORANGE']
- PLAYER 2 ['WHITE', 'PINK', 'BLUE', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX']], trains 45, points -32
-   picked up destination cards: [['DALLAS', '11', 'NEW YORK'], ['DENVER', '11', 'PITTSBURGH'], ['KANSAS CITY', '5', 'HOUSTON']]
-   taking ['DENVER', '11', 'PITTSBURGH']
-
-TURN 8
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'BLUE', 'ORANGE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 45, points -52
-   picked up ORANGE from face up deck.
-   picked up BLACK from face down deck.
-
-TURN 9
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'BLUE', 'ORANGE']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE', 'ORANGE', 'RED', 'ORANGE', 'WHITE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA']], trains 45, points -13
-   picked up WHITE from face down deck.
-   picked up BLUE from face up deck.
-
-TURN 10
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'ORANGE', 'WILD']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW', 'BLUE', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON']], trains 45, points -47
-   picked up ORANGE from face up deck.
-   picked up WILD from face up deck.
-
-TURN 11
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'WILD', 'RED']
- PLAYER 2 ['WHITE', 'PINK', 'BLUE', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 45, points -43
-   placed ('SEATTLE', 'PORTLAND', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['BLUE']
-
-TURN 12
-CARDS UP ['YELLOW', 'YELLOW', 'WILD', 'WILD', 'RED']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLACK'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 45, points -52
-   picked up YELLOW from face up deck.
-   picked up YELLOW from face up deck.
-
-TURN 13
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE', 'ORANGE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA']], trains 45, points -13
-   picked up destination cards: [['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['LOS ANGELES', '20', 'MIAMI']]
-   taking ['LOS ANGELES', '20', 'MIAMI']
-
-TURN 14
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON']], trains 45, points -47
-   picked up destination cards: [['PORTLAND', '11', 'PHOENIX'], ['TORONTO', '10', 'MIAMI'], ['DENVER', '4', 'EL PASO']]
-   taking ['DENVER', '4', 'EL PASO']
-
-TURN 15
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 2 ['WHITE', 'PINK', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 44, points -42
-   placed ('OMAHA', 'KANSAS CITY', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['BLACK']
-
-TURN 16
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLACK', 'YELLOW', 'YELLOW'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 45, points -52
-   picked up WILD from face down deck.
-   picked up BLACK from face down deck.
-
-TURN 17
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 0 ['BLACK', 'GREEN', 'ORANGE', 'WHITE', 'ORANGE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI']], trains 45, points -33
-   placed ('RALEIGH', 'CHARLESTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['ORANGE', 'ORANGE']
-
-TURN 18
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 1 ['BLUE', 'GREEN', 'BLUE', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO']], trains 45, points -51
-   placed ('OKLAHOMA CITY', 'DALLAS', 1, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['BLUE', 'BLUE']
-
-TURN 19
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 2 ['WHITE', 'PINK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 43, points -41
-   placed ('NASHVILLE', 'ATLANTA', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['WHITE']
-
-TURN 20
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLACK', 'YELLOW', 'YELLOW', 'WILD', 'BLACK'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 45, points -52
-   placed ('DALLAS', 'HOUSTON', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['WHITE']
-
-TURN 21
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 0 ['BLACK', 'GREEN', 'WHITE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI']], trains 43, points -31
-   picked up destination cards: [['LOS ANGELES', '16', 'CHICAGO'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['WINNIPEG', '11', 'LITTLE ROCK']]
-   taking ['SAULT ST. MARIE', '8', 'NASHVILLE']
-
-TURN 22
-CARDS UP ['WILD', 'WILD', 'RED', 'YELLOW', 'WILD']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO']], trains 43, points -49
-   picked up YELLOW from face up deck.
-   picked up RED from face up deck.
-
-TURN 23
-CARDS UP ['WILD', 'WILD', 'WILD', 'RED', 'YELLOW']
- PLAYER 2 ['PINK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 42, points -40
-   placed ('DALLAS', 'HOUSTON', 0, {'weight': 1, 'color': 'GRAY', 'owner': 3}) using ['PINK']
-
-TURN 24
-CARDS UP ['WILD', 'WILD', 'WILD', 'RED', 'YELLOW']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'BLACK', 'YELLOW', 'YELLOW', 'WILD', 'BLACK'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 44, points -51
-   placed ('NEW YORK', 'WASHINGTON', 1, {'weight': 2, 'color': 'BLACK', 'owner': ''}) using ['BLACK', 'BLACK']
-
-TURN 25
-CARDS UP ['WILD', 'WILD', 'WILD', 'RED', 'YELLOW']
- PLAYER 0 ['BLACK', 'GREEN', 'WHITE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE']], trains 43, points -39
-   picked up YELLOW from face up deck.
-   picked up WILD from face down deck.
-
-TURN 26
-CARDS UP ['WILD', 'WILD', 'WILD', 'RED', 'ORANGE']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO']], trains 43, points -49
-   picked up WHITE from face down deck.
-   picked up ORANGE from face up deck.
-
-TURN 27
-CARDS UP ['WILD', 'WILD', 'WILD', 'RED', 'BLUE']
- PLAYER 2 [], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 41, points -39
-   picked up BLUE from face up deck.
-   picked up WILD from face up deck.
-
-TURN 28
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE']], trains 42, points -49
-   picked up destination cards: [['HELENA', '8', 'LOS ANGELES'], ['MONTREAL', '13', 'NEW ORLEANS'], ['PORTLAND', '17', 'NASHVILLE']]
-   taking ['MONTREAL', '13', 'NEW ORLEANS']
-
-TURN 29
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 0 ['BLACK', 'GREEN', 'WHITE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE', 'YELLOW', 'WILD'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE']], trains 43, points -39
-   picked up destination cards: [['VANCOUVER', '20', 'MONTREAL'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK']]
-   taking ['MONTREAL', '9', 'ATLANTA']
-
-TURN 30
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO']], trains 43, points -49
-   picked up destination cards: [['KANSAS CITY', '5', 'HOUSTON'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']]
-   taking ['SEATTLE', '22', 'NEW YORK']
-
-TURN 31
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 2 ['BLUE', 'WILD'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH']], trains 41, points -39
-   picked up destination cards: [['PORTLAND', '11', 'PHOENIX'], ['TORONTO', '10', 'MIAMI'], ['LOS ANGELES', '16', 'CHICAGO']]
-   taking ['TORONTO', '10', 'MIAMI']
-
-TURN 32
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS']], trains 42, points -62
-   picked up destination cards: [['WINNIPEG', '11', 'LITTLE ROCK'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']]
-   taking ['WINNIPEG', '11', 'LITTLE ROCK']
-
-TURN 33
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 0 ['BLACK', 'GREEN', 'WHITE', 'RED', 'ORANGE', 'WHITE', 'WHITE', 'BLUE', 'YELLOW', 'WILD'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA']], trains 43, points -48
-   placed ('PHOENIX', 'EL PASO', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['WHITE', 'WHITE', 'WHITE']
-
-TURN 34
-CARDS UP ['WILD', 'WILD', 'RED', 'BLACK', 'BLUE']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK']], trains 43, points -71
-   picked up BLUE from face up deck.
-   picked up BLACK from face up deck.
-
-TURN 35
-CARDS UP ['WILD', 'WILD', 'RED', 'RED', 'YELLOW']
- PLAYER 2 ['BLUE', 'WILD'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI']], trains 41, points -49
-   picked up RED from face down deck.
-   picked up RED from face down deck.
-
-TURN 36
-CARDS UP ['WILD', 'WILD', 'RED', 'RED', 'YELLOW']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK']], trains 42, points -73
-   picked up WILD from face up deck.
-
-TURN 37
-CARDS UP ['WILD', 'RED', 'RED', 'YELLOW', 'YELLOW']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'YELLOW', 'WILD'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA']], trains 40, points -44
-   picked up destination cards: [['VANCOUVER', '20', 'MONTREAL'], ['DALLAS', '11', 'NEW YORK'], ['KANSAS CITY', '5', 'HOUSTON']]
-   taking ['DALLAS', '11', 'NEW YORK']
-
-TURN 38
-CARDS UP ['WILD', 'RED', 'RED', 'YELLOW', 'YELLOW']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK']], trains 43, points -71
-   picked up BLUE from face down deck.
-   picked up YELLOW from face up deck.
-
-TURN 39
-CARDS UP ['WILD', 'RED', 'RED', 'YELLOW', 'BLUE']
- PLAYER 2 ['BLUE', 'WILD', 'RED', 'RED'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI']], trains 41, points -49
-   placed ('SAULT ST. MARIE', 'TORONTO', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['RED', 'RED']
-
-TURN 40
-CARDS UP ['WILD', 'RED', 'RED', 'YELLOW', 'BLUE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK']], trains 42, points -73
-   picked up YELLOW from face up deck.
-   picked up WILD from face down deck.
-
-TURN 41
-CARDS UP ['WILD', 'RED', 'RED', 'BLUE', 'WILD']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'YELLOW', 'WILD'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK']], trains 40, points -55
-   picked up PINK from face down deck.
-   picked up RED from face down deck.
-
-TURN 42
-CARDS UP ['WILD', 'RED', 'RED', 'BLUE', 'WILD']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK']], trains 43, points -71
-   picked up BLUE from face up deck.
-   picked up YELLOW from face up deck.
-
-TURN 43
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 2 ['BLUE', 'WILD'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI']], trains 39, points -47
-   picked up destination cards: [['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['PORTLAND', '11', 'PHOENIX'], ['LOS ANGELES', '16', 'CHICAGO']]
-   taking ['PORTLAND', '11', 'PHOENIX']
-
-TURN 44
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK']], trains 42, points -73
-   picked up PINK from face down deck.
-   picked up BLUE from face down deck.
-
-TURN 45
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'YELLOW', 'WILD', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK']], trains 40, points -55
-   picked up destination cards: [['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE'], ['VANCOUVER', '20', 'MONTREAL']]
-   taking ['VANCOUVER', '20', 'MONTREAL']
-
-TURN 46
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK']], trains 43, points -71
-   picked up destination cards: [['KANSAS CITY', '5', 'HOUSTON'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['LOS ANGELES', '16', 'CHICAGO']]
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE']], trains 44, points -43
+   picked up destination cards: [['DENVER', '4', 'EL PASO'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['NEW YORK', '6', 'ATLANTA']]
    taking ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']
 
-TURN 47
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 2 ['BLUE', 'WILD'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 39, points -58
-   placed ('MONTREAL', 'BOSTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'BLUE']
+TURN 8
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW', 'PINK', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON']], trains 45, points -23
+   picked up destination cards: [['LOS ANGELES', '20', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK']]
+   taking ['LOS ANGELES', '21', 'NEW YORK']
 
-TURN 48
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'PINK', 'BLUE'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK']], trains 42, points -73
-   picked up destination cards: [['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE'], ['KANSAS CITY', '5', 'HOUSTON']]
-   taking ['KANSAS CITY', '5', 'HOUSTON']
+TURN 9
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 44, points -52
+   picked up destination cards: [['CHICAGO', '7', 'NEW ORLEANS'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['KANSAS CITY', '5', 'HOUSTON']]
+   taking ['SAULT ST. MARIE', '8', 'NASHVILLE']
 
-TURN 49
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'YELLOW', 'WILD', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL']], trains 40, points -75
-   picked up destination cards: [['LOS ANGELES', '16', 'CHICAGO'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']]
-   taking ['HELENA', '8', 'LOS ANGELES']
+TURN 10
+CARDS UP ['GREEN', 'ORANGE', 'BLUE', 'YELLOW', 'BLUE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW', 'PINK', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK']], trains 45, points -44
+   picked up GREEN from face up deck.
+   picked up PINK from face down deck.
+
+TURN 11
+CARDS UP ['ORANGE', 'BLUE', 'YELLOW', 'BLUE', 'BLACK']
+ PLAYER 0 ['PINK', 'YELLOW', 'PINK', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE']], trains 44, points -60
+   placed ('SAULT ST. MARIE', 'TORONTO', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['PINK', 'PINK']
+
+TURN 12
+CARDS UP ['ORANGE', 'BLUE', 'YELLOW', 'BLUE', 'BLACK']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK']], trains 45, points -44
+   picked up destination cards: [['SAN FRANCISCO', '17', 'ATLANTA'], ['CALGARY', '7', 'SALT LAKE CITY'], ['LOS ANGELES', '16', 'CHICAGO']]
+   taking ['CALGARY', '7', 'SALT LAKE CITY']
+
+TURN 13
+CARDS UP ['ORANGE', 'BLUE', 'YELLOW', 'BLUE', 'BLACK']
+ PLAYER 0 ['YELLOW', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE']], trains 42, points -58
+   picked up destination cards: [['CHICAGO', '9', 'SANTA FE'], ['BOSTON', '12', 'MIAMI'], ['MONTREAL', '13', 'NEW ORLEANS']]
+   taking ['MONTREAL', '13', 'NEW ORLEANS']
+
+TURN 14
+CARDS UP ['ORANGE', 'BLUE', 'YELLOW', 'BLUE', 'BLACK']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY']], trains 45, points -51
+   picked up BLACK from face up deck.
+   picked up ORANGE from face up deck.
+
+TURN 15
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 0 ['YELLOW', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS']], trains 42, points -71
+   picked up destination cards: [['VANCOUVER', '20', 'MONTREAL'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK']]
+   taking ['WINNIPEG', '11', 'LITTLE ROCK']
+   taking ['SEATTLE', '22', 'NEW YORK']
+
+TURN 16
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'WILD', 'BLUE', 'WHITE', 'WILD', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY']], trains 45, points -51
+   placed ('SAINT LOUIS', 'LITTLE ROCK', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'WILD']
+
+TURN 17
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 0 ['YELLOW', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK']], trains 42, points -104
+   picked up destination cards: [['MONTREAL', '9', 'ATLANTA'], ['TORONTO', '10', 'MIAMI'], ['DALLAS', '11', 'NEW YORK']]
+   taking ['DALLAS', '11', 'NEW YORK']
+
+TURN 18
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY']], trains 43, points -49
+   picked up BLACK from face down deck.
+   picked up BLUE from face down deck.
+
+TURN 19
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 0 ['YELLOW', 'PINK', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 42, points -115
+   placed ('OMAHA', 'KANSAS CITY', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['BLACK']
+
+TURN 20
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY']], trains 43, points -49
+   picked up destination cards: [['PORTLAND', '17', 'NASHVILLE'], ['PORTLAND', '11', 'PHOENIX'], ['HELENA', '8', 'LOS ANGELES']]
    taking ['PORTLAND', '17', 'NASHVILLE']
 
-TURN 50
-CARDS UP ['WILD', 'RED', 'RED', 'WILD', 'RED']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 43, points -80
+TURN 21
+CARDS UP ['BLUE', 'YELLOW', 'BLUE', 'WHITE', 'ORANGE']
+ PLAYER 0 ['YELLOW', 'PINK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 41, points -114
    picked up WILD from face down deck.
-   picked up RED from face up deck.
+   picked up YELLOW from face up deck.
 
-TURN 51
-CARDS UP ['WILD', 'RED', 'WILD', 'RED', 'PINK']
- PLAYER 2 [], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 37, points -56
-   picked up RED from face up deck.
-   picked up PINK from face down deck.
-
-TURN 52
-CARDS UP ['WILD', 'WILD', 'RED', 'PINK', 'PINK']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'PINK', 'BLUE'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 42, points -78
-   picked up PINK from face up deck.
+TURN 22
+CARDS UP ['BLUE', 'BLUE', 'WHITE', 'ORANGE', 'GREEN']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE']], trains 43, points -66
    picked up RED from face down deck.
+   picked up BLUE from face up deck.
 
-TURN 53
-CARDS UP ['WILD', 'WILD', 'RED', 'PINK', 'BLACK']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'YELLOW', 'WILD', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 40, points -100
-   placed ('SEATTLE', 'PORTLAND', 0, {'weight': 1, 'color': 'GRAY', 'owner': 2}) using ['YELLOW']
+TURN 23
+CARDS UP ['BLUE', 'WHITE', 'ORANGE', 'GREEN', 'RED']
+ PLAYER 0 ['YELLOW', 'PINK', 'WILD', 'YELLOW'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 41, points -114
+   placed ('KANSAS CITY', 'OKLAHOMA CITY', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['YELLOW', 'YELLOW']
 
-TURN 54
-CARDS UP ['WILD', 'WILD', 'RED', 'PINK', 'BLACK']
- PLAYER 1 ['GREEN', 'YELLOW', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 43, points -80
-   placed ('SEATTLE', 'PORTLAND', 1, {'weight': 1, 'color': 'GRAY', 'owner': 0}) using ['YELLOW']
-
-TURN 55
-CARDS UP ['WILD', 'WILD', 'RED', 'PINK', 'BLACK']
- PLAYER 2 ['RED', 'PINK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 37, points -56
-   picked up YELLOW from face down deck.
-   picked up PINK from face down deck.
-
-TURN 56
-CARDS UP ['WILD', 'WILD', 'RED', 'PINK', 'BLACK']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'PINK', 'BLUE', 'PINK', 'RED'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 42, points -78
-   picked up PINK from face down deck.
-   picked up RED from face up deck.
-
-TURN 57
-CARDS UP ['WILD', 'WILD', 'PINK', 'BLACK', 'ORANGE']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 39, points -99
+TURN 24
+CARDS UP ['BLUE', 'WHITE', 'ORANGE', 'GREEN', 'RED']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE']], trains 43, points -66
+   picked up ORANGE from face down deck.
    picked up BLUE from face down deck.
-   picked up GREEN from face down deck.
 
-TURN 58
-CARDS UP ['WILD', 'WILD', 'PINK', 'BLACK', 'ORANGE']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
+TURN 25
+CARDS UP ['BLUE', 'WHITE', 'ORANGE', 'GREEN', 'RED']
+ PLAYER 0 ['PINK', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 39, points -112
+   placed ('PITTSBURGH', 'RALEIGH', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'PINK']
+
+TURN 26
+CARDS UP ['BLUE', 'WHITE', 'ORANGE', 'GREEN', 'RED']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE']], trains 43, points -66
+   picked up destination cards: [['DENVER', '4', 'EL PASO'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI']]
+   taking ['LOS ANGELES', '20', 'MIAMI']
+
+TURN 27
+CARDS UP ['BLUE', 'WHITE', 'ORANGE', 'GREEN', 'RED']
+ PLAYER 0 [], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 37, points -110
    picked up ORANGE from face up deck.
    picked up GREEN from face down deck.
 
-TURN 59
-CARDS UP ['WILD', 'WILD', 'PINK', 'BLACK', 'RED']
- PLAYER 2 ['RED', 'PINK', 'YELLOW', 'PINK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 37, points -56
-   placed ('WASHINGTON', 'RALEIGH', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['PINK', 'PINK']
+TURN 28
+CARDS UP ['BLUE', 'WHITE', 'GREEN', 'RED', 'WHITE']
+ PLAYER 1 ['RED', 'PINK', 'WHITE', 'BLUE', 'WHITE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 43, points -86
+   placed ('MONTREAL', 'BOSTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WHITE', 'WHITE']
 
-TURN 60
-CARDS UP ['WILD', 'WILD', 'PINK', 'BLACK', 'RED']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'PINK', 'BLUE', 'PINK', 'RED', 'PINK', 'RED'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 42, points -78
+TURN 29
+CARDS UP ['BLUE', 'WHITE', 'GREEN', 'RED', 'WHITE']
+ PLAYER 0 ['ORANGE', 'GREEN'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK']], trains 37, points -110
+   picked up destination cards: [['SEATTLE', '9', 'LOS ANGELES'], ['CHICAGO', '7', 'NEW ORLEANS'], ['KANSAS CITY', '5', 'HOUSTON']]
+   taking ['CHICAGO', '7', 'NEW ORLEANS']
+
+TURN 30
+CARDS UP ['BLUE', 'WHITE', 'GREEN', 'RED', 'WHITE']
+ PLAYER 1 ['RED', 'PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 41, points -84
+   picked up GREEN from face up deck.
+   picked up RED from face down deck.
+
+TURN 31
+CARDS UP ['BLUE', 'WHITE', 'RED', 'WHITE', 'BLACK']
+ PLAYER 0 ['ORANGE', 'GREEN'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS']], trains 37, points -117
+   placed ('VANCOUVER', 'SEATTLE', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['GREEN']
+
+TURN 32
+CARDS UP ['BLUE', 'WHITE', 'RED', 'WHITE', 'BLACK']
+ PLAYER 1 ['RED', 'PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 41, points -84
+   picked up RED from face up deck.
    picked up BLUE from face down deck.
+
+TURN 33
+CARDS UP ['BLUE', 'WHITE', 'WHITE', 'BLACK', 'PINK']
+ PLAYER 0 ['ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS']], trains 36, points -116
+   picked up destination cards: [['SAN FRANCISCO', '17', 'ATLANTA'], ['LOS ANGELES', '16', 'CHICAGO'], ['CHICAGO', '9', 'SANTA FE']]
+   taking ['SAN FRANCISCO', '17', 'ATLANTA']
+
+TURN 34
+CARDS UP ['BLUE', 'WHITE', 'WHITE', 'BLACK', 'PINK']
+ PLAYER 1 ['RED', 'PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'BLACK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED', 'RED', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 41, points -84
+   placed ('OMAHA', 'KANSAS CITY', 0, {'weight': 1, 'color': 'GRAY', 'owner': 0}) using ['BLACK']
+
+TURN 35
+CARDS UP ['BLUE', 'WHITE', 'WHITE', 'BLACK', 'PINK']
+ PLAYER 0 ['ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up WILD from face down deck.
+   picked up WHITE from face up deck.
+
+TURN 36
+CARDS UP ['BLUE', 'WHITE', 'BLACK', 'PINK', 'GREEN']
+ PLAYER 1 ['RED', 'PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'BLUE', 'RED', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED', 'RED', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 40, points -83
+   placed ('DULUTH', 'CHICAGO', 0, {'weight': 3, 'color': 'RED', 'owner': ''}) using ['RED', 'RED', 'RED']
+
+TURN 37
+CARDS UP ['BLUE', 'WHITE', 'BLACK', 'PINK', 'GREEN']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up WHITE from face up deck.
+   picked up PINK from face down deck.
+
+TURN 38
+CARDS UP ['BLUE', 'BLACK', 'PINK', 'GREEN', 'GREEN']
+ PLAYER 1 ['PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'BLUE', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 37, points -79
+   picked up BLACK from face up deck.
+   picked up PINK from face up deck.
+
+TURN 39
+CARDS UP ['BLUE', 'GREEN', 'GREEN', 'PINK', 'GREEN']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up PINK from face up deck.
    picked up WILD from face down deck.
 
+TURN 40
+CARDS UP ['BLUE', 'GREEN', 'GREEN', 'GREEN', 'RED']
+ PLAYER 1 ['PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'BLUE', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 37, points -79
+   picked up YELLOW from face down deck.
+   picked up BLUE from face up deck.
+
+TURN 41
+CARDS UP ['GREEN', 'GREEN', 'GREEN', 'RED', 'WHITE']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up RED from face up deck.
+   picked up YELLOW from face up deck.
+
+TURN 42
+CARDS UP ['GREEN', 'GREEN', 'GREEN', 'WHITE', 'BLACK']
+ PLAYER 1 ['PINK', 'BLUE', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'BLUE', 'BLUE', 'ORANGE', 'BLUE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 37, points -79
+   placed ('OMAHA', 'CHICAGO', 0, {'weight': 4, 'color': 'BLUE', 'owner': ''}) using ['BLUE', 'BLUE', 'BLUE', 'BLUE']
+
+TURN 43
+CARDS UP ['GREEN', 'GREEN', 'GREEN', 'WHITE', 'BLACK']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up GREEN from face up deck.
+   picked up WILD from face down deck.
+
+TURN 44
+CARDS UP ['GREEN', 'GREEN', 'WHITE', 'BLACK', 'BLACK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 33, points -72
+   picked up GREEN from face up deck.
+   picked up WHITE from face up deck.
+
+TURN 45
+CARDS UP ['GREEN', 'BLACK', 'BLACK', 'WILD', 'YELLOW']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up GREEN from face down deck.
+   picked up WILD from face down deck.
+
+TURN 46
+CARDS UP ['GREEN', 'BLACK', 'BLACK', 'WILD', 'YELLOW']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI']], trains 33, points -72
+   picked up destination cards: [['BOSTON', '12', 'MIAMI'], ['VANCOUVER', '20', 'MONTREAL'], ['MONTREAL', '9', 'ATLANTA']]
+   taking ['BOSTON', '12', 'MIAMI']
+
+TURN 47
+CARDS UP ['GREEN', 'BLACK', 'BLACK', 'WILD', 'YELLOW']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up GREEN from face up deck.
+   picked up ORANGE from face up deck.
+
+TURN 48
+CARDS UP ['BLACK', 'BLACK', 'WILD', 'YELLOW', 'GREEN']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'BLACK', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 33, points -84
+   placed ('VANCOUVER', 'SEATTLE', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['BLACK']
+
+TURN 49
+CARDS UP ['BLACK', 'BLACK', 'WILD', 'YELLOW', 'GREEN']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up WILD from face up deck.
+
+TURN 50
+CARDS UP ['BLACK', 'BLACK', 'YELLOW', 'GREEN', 'WILD']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 32, points -83
+   picked up YELLOW from face up deck.
+   picked up ORANGE from face down deck.
+
+TURN 51
+CARDS UP ['BLACK', 'BLACK', 'GREEN', 'WILD', 'WHITE']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA']], trains 36, points -133
+   picked up destination cards: [['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX'], ['HELENA', '8', 'LOS ANGELES']]
+   taking ['HELENA', '8', 'LOS ANGELES']
+
+TURN 52
+CARDS UP ['BLACK', 'BLACK', 'GREEN', 'WILD', 'WHITE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 32, points -83
+   picked up ORANGE from face down deck.
+   picked up BLUE from face down deck.
+
+TURN 53
+CARDS UP ['BLACK', 'BLACK', 'GREEN', 'WILD', 'WHITE']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES']], trains 36, points -141
+   picked up YELLOW from face down deck.
+   picked up WILD from face up deck.
+
+TURN 54
+CARDS UP ['BLACK', 'BLACK', 'GREEN', 'WHITE', 'BLACK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 32, points -83
+   picked up WHITE from face up deck.
+   picked up GREEN from face up deck.
+
+TURN 55
+CARDS UP ['BLACK', 'BLACK', 'BLACK', 'RED', 'RED']
+ PLAYER 0 ['ORANGE', 'WILD', 'WHITE', 'WHITE', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES']], trains 36, points -141
+   placed ('SAINT LOUIS', 'NASHVILLE', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WHITE', 'WHITE']
+
+TURN 56
+CARDS UP ['BLACK', 'BLACK', 'BLACK', 'RED', 'RED']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLUE', 'BLACK', 'PINK', 'YELLOW', 'BLUE', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 32, points -83
+   placed ('RALEIGH', 'CHARLESTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['BLUE', 'BLUE']
+
+TURN 57
+CARDS UP ['BLACK', 'BLACK', 'BLACK', 'RED', 'RED']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES']], trains 34, points -139
+   picked up destination cards: [['DENVER', '4', 'EL PASO'], ['NEW YORK', '6', 'ATLANTA'], ['SEATTLE', '9', 'LOS ANGELES']]
+   taking ['DENVER', '4', 'EL PASO']
+
+TURN 58
+CARDS UP ['BLACK', 'BLACK', 'BLACK', 'RED', 'RED']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLACK', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 30, points -81
+   picked up BLACK from face up deck.
+   picked up BLACK from face up deck.
+
+TURN 59
+CARDS UP ['BLACK', 'RED', 'RED', 'ORANGE', 'RED']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO']], trains 34, points -143
+   picked up destination cards: [['KANSAS CITY', '5', 'HOUSTON'], ['LOS ANGELES', '16', 'CHICAGO'], ['CHICAGO', '9', 'SANTA FE']]
+   taking ['LOS ANGELES', '16', 'CHICAGO']
+
+TURN 60
+CARDS UP ['BLACK', 'RED', 'RED', 'ORANGE', 'RED']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'BLACK', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'BLACK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 30, points -81
+   placed ('RALEIGH', 'ATLANTA', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['BLACK', 'BLACK']
+
 TURN 61
-CARDS UP ['WILD', 'WILD', 'PINK', 'BLACK', 'RED']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'GREEN'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 39, points -99
-   picked up PINK from face down deck.
+CARDS UP ['BLACK', 'RED', 'RED', 'ORANGE', 'RED']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO']], trains 34, points -159
+   picked up WHITE from face down deck.
    picked up BLACK from face up deck.
 
 TURN 62
-CARDS UP ['WILD', 'WILD', 'PINK', 'RED', 'PINK']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
+CARDS UP ['RED', 'RED', 'ORANGE', 'RED', 'WHITE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 28, points -79
    picked up WILD from face down deck.
-   picked up ORANGE from face down deck.
+   picked up WHITE from face up deck.
 
 TURN 63
-CARDS UP ['WILD', 'WILD', 'PINK', 'RED', 'PINK']
- PLAYER 2 ['RED', 'YELLOW'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 35, points -54
-   picked up RED from face up deck.
-   picked up PINK from face up deck.
+CARDS UP ['RED', 'RED', 'ORANGE', 'RED', 'ORANGE']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO']], trains 34, points -159
+   placed ('SEATTLE', 'PORTLAND', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['BLACK']
 
 TURN 64
-CARDS UP ['WILD', 'WILD', 'PINK', 'WHITE', 'BLACK']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'PINK', 'BLUE', 'PINK', 'RED', 'PINK', 'RED', 'BLUE', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 42, points -78
-   placed ('DULUTH', 'SAULT ST. MARIE', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['PINK', 'PINK', 'PINK']
-
-TURN 65
-CARDS UP ['WILD', 'WILD', 'PINK', 'WHITE', 'BLACK']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'GREEN', 'PINK', 'BLACK'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 39, points -99
-   picked up BLACK from face up deck.
-   picked up PINK from face up deck.
-
-TURN 66
-CARDS UP ['WILD', 'WILD', 'WHITE', 'WILD', 'YELLOW']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up YELLOW from face up deck.
-   picked up WHITE from face up deck.
-
-TURN 67
-CARDS UP ['WILD', 'WILD', 'WILD', 'BLACK', 'GREEN']
- PLAYER 2 ['RED', 'YELLOW', 'RED', 'PINK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 35, points -54
-   picked up GREEN from face up deck.
-   picked up BLACK from face up deck.
-
-TURN 68
-CARDS UP ['WILD', 'WILD', 'WILD', 'WHITE', 'WHITE']
- PLAYER 3 ['GREEN', 'YELLOW', 'RED', 'ORANGE', 'YELLOW', 'YELLOW', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 39, points -74
-   placed ('DENVER', 'SALT LAKE CITY', 1, {'weight': 3, 'color': 'YELLOW', 'owner': ''}) using ['YELLOW', 'YELLOW', 'YELLOW']
-
-TURN 69
-CARDS UP ['WILD', 'WILD', 'WILD', 'WHITE', 'WHITE']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'GREEN', 'PINK', 'BLACK', 'BLACK', 'PINK'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 39, points -99
-   picked up RED from face down deck.
-   picked up WHITE from face up deck.
-
-TURN 70
-CARDS UP ['WILD', 'WILD', 'WILD', 'WHITE', 'GREEN']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up GREEN from face up deck.
-   picked up WHITE from face up deck.
-
-TURN 71
-CARDS UP ['WILD', 'WILD', 'WILD', 'BLACK', 'GREEN']
- PLAYER 2 ['RED', 'YELLOW', 'RED', 'PINK', 'GREEN', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 35, points -54
-   placed ('KANSAS CITY', 'OKLAHOMA CITY', 1, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['RED', 'RED']
-
-TURN 72
-CARDS UP ['WILD', 'WILD', 'WILD', 'BLACK', 'GREEN']
- PLAYER 3 ['GREEN', 'RED', 'ORANGE', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 36, points -70
-   picked up BLACK from face up deck.
-   picked up GREEN from face up deck.
-
-TURN 73
-CARDS UP ['WILD', 'WILD', 'WILD', 'ORANGE', 'WHITE']
- PLAYER 0 ['BLACK', 'GREEN', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'GREEN', 'PINK', 'BLACK', 'BLACK', 'PINK', 'RED', 'WHITE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 39, points -99
-   placed ('CHICAGO', 'SAINT LOUIS', 1, {'weight': 2, 'color': 'GREEN', 'owner': ''}) using ['GREEN', 'GREEN']
-
-TURN 74
-CARDS UP ['WILD', 'WILD', 'WILD', 'ORANGE', 'WHITE']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE', 'GREEN', 'WHITE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up WHITE from face down deck.
+CARDS UP ['RED', 'RED', 'ORANGE', 'RED', 'ORANGE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 28, points -79
+   picked up YELLOW from face down deck.
    picked up ORANGE from face up deck.
 
+TURN 65
+CARDS UP ['RED', 'RED', 'RED', 'ORANGE', 'PINK']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO']], trains 33, points -158
+   picked up destination cards: [['VANCOUVER', '20', 'MONTREAL'], ['MONTREAL', '9', 'ATLANTA'], ['TORONTO', '10', 'MIAMI']]
+   taking ['TORONTO', '10', 'MIAMI']
+
+TURN 66
+CARDS UP ['RED', 'RED', 'RED', 'ORANGE', 'PINK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI']], trains 28, points -79
+   picked up destination cards: [['PORTLAND', '11', 'PHOENIX'], ['NEW YORK', '6', 'ATLANTA'], ['SEATTLE', '9', 'LOS ANGELES']]
+   taking ['NEW YORK', '6', 'ATLANTA']
+
+TURN 67
+CARDS UP ['RED', 'RED', 'RED', 'ORANGE', 'PINK']
+ PLAYER 0 ['ORANGE', 'WILD', 'PINK', 'PINK', 'WILD', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI']], trains 33, points -168
+   placed ('MONTREAL', 'BOSTON', 1, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'WILD']
+
+TURN 68
+CARDS UP ['RED', 'RED', 'RED', 'ORANGE', 'PINK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA']], trains 28, points -85
+   picked up destination cards: [['KANSAS CITY', '5', 'HOUSTON'], ['CHICAGO', '9', 'SANTA FE'], ['VANCOUVER', '20', 'MONTREAL']]
+   taking ['CHICAGO', '9', 'SANTA FE']
+
+TURN 69
+CARDS UP ['RED', 'RED', 'RED', 'ORANGE', 'PINK']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI']], trains 31, points -166
+   picked up RED from face down deck.
+   picked up ORANGE from face up deck.
+
+TURN 70
+CARDS UP ['RED', 'RED', 'RED', 'PINK', 'WILD']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE']], trains 28, points -94
+   picked up WILD from face up deck.
+
+TURN 71
+CARDS UP ['RED', 'RED', 'RED', 'PINK', 'ORANGE']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI']], trains 31, points -166
+   picked up destination cards: [['MONTREAL', '9', 'ATLANTA'], ['PORTLAND', '11', 'PHOENIX'], ['SEATTLE', '9', 'LOS ANGELES']]
+   taking ['SEATTLE', '9', 'LOS ANGELES']
+
+TURN 72
+CARDS UP ['RED', 'RED', 'RED', 'PINK', 'ORANGE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'GREEN', 'PINK', 'ORANGE', 'ORANGE', 'GREEN', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE']], trains 28, points -94
+   placed ('PITTSBURGH', 'WASHINGTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['GREEN', 'GREEN']
+
+TURN 73
+CARDS UP ['RED', 'RED', 'RED', 'PINK', 'ORANGE']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 31, points -175
+   picked up PINK from face up deck.
+   picked up ORANGE from face up deck.
+
+TURN 74
+CARDS UP ['RED', 'RED', 'RED', 'BLACK', 'BLACK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'GREEN', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'GREEN', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE']], trains 26, points -92
+   placed ('DULUTH', 'OMAHA', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['GREEN', 'GREEN']
+
 TURN 75
-CARDS UP ['WILD', 'WILD', 'WILD', 'WHITE', 'GREEN']
- PLAYER 2 ['YELLOW', 'PINK', 'GREEN', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 33, points -52
-   picked up WHITE from face up deck.
-   picked up BLACK from face down deck.
+CARDS UP ['RED', 'RED', 'RED', 'BLACK', 'BLACK']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 31, points -175
+   picked up WHITE from face down deck.
+   picked up RED from face up deck.
 
 TURN 76
-CARDS UP ['WILD', 'WILD', 'WILD', 'GREEN', 'YELLOW']
- PLAYER 3 ['GREEN', 'RED', 'ORANGE', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD', 'BLACK', 'GREEN'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 36, points -70
-   picked up PINK from face down deck.
-   picked up YELLOW from face up deck.
+CARDS UP ['RED', 'RED', 'BLACK', 'BLACK', 'GREEN']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE']], trains 24, points -90
+   picked up destination cards: [['KANSAS CITY', '5', 'HOUSTON'], ['VANCOUVER', '20', 'MONTREAL'], ['MONTREAL', '9', 'ATLANTA']]
+   taking ['MONTREAL', '9', 'ATLANTA']
 
 TURN 77
-CARDS UP ['WILD', 'WILD', 'WILD', 'GREEN', 'WILD']
- PLAYER 0 ['BLACK', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'PINK', 'BLACK', 'BLACK', 'PINK', 'RED', 'WHITE'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 37, points -97
-   placed ('VANCOUVER', 'SEATTLE', 0, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['WHITE']
+CARDS UP ['RED', 'RED', 'BLACK', 'BLACK', 'GREEN']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 31, points -175
+   picked up ORANGE from face down deck.
+   picked up BLACK from face down deck.
 
 TURN 78
-CARDS UP ['WILD', 'WILD', 'WILD', 'GREEN', 'WILD']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE', 'GREEN', 'WHITE', 'WHITE', 'ORANGE'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up ORANGE from face down deck.
-   picked up WILD from face up deck.
+CARDS UP ['RED', 'RED', 'BLACK', 'BLACK', 'GREEN']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 24, points -99
+   picked up BLUE from face down deck.
+   picked up PINK from face down deck.
 
 TURN 79
-CARDS UP ['WILD', 'WILD', 'GREEN', 'WILD', 'GREEN']
- PLAYER 2 ['YELLOW', 'PINK', 'GREEN', 'BLACK', 'WHITE', 'BLACK'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 33, points -52
-   picked up ORANGE from face down deck.
-   picked up WILD from face up deck.
+CARDS UP ['RED', 'RED', 'BLACK', 'BLACK', 'GREEN']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 31, points -175
+   picked up RED from face up deck.
+   picked up BLACK from face up deck.
 
 TURN 80
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 3 ['GREEN', 'RED', 'ORANGE', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD', 'BLACK', 'GREEN', 'PINK', 'YELLOW'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 36, points -70
-   picked up PINK from face down deck.
+CARDS UP ['RED', 'BLACK', 'GREEN', 'BLUE', 'RED']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 24, points -99
    picked up GREEN from face down deck.
+   picked up YELLOW from face down deck.
 
 TURN 81
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 0 ['BLACK', 'RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'PINK', 'BLACK', 'BLACK', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 36, points -96
-   placed ('NEW YORK', 'WASHINGTON', 1, {'weight': 2, 'color': 'BLACK', 'owner': ''}) using ['BLACK', 'BLACK']
+CARDS UP ['RED', 'BLACK', 'GREEN', 'BLUE', 'RED']
+ PLAYER 0 ['ORANGE', 'PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'ORANGE', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 31, points -175
+   placed ('NEW YORK', 'WASHINGTON', 0, {'weight': 2, 'color': 'ORANGE', 'owner': ''}) using ['ORANGE', 'ORANGE']
 
 TURN 82
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE', 'GREEN', 'WHITE', 'WHITE', 'ORANGE', 'ORANGE', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up WHITE from face down deck.
+CARDS UP ['RED', 'BLACK', 'GREEN', 'BLUE', 'RED']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 24, points -99
    picked up GREEN from face down deck.
+   picked up GREEN from face up deck.
 
 TURN 83
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 2 ['YELLOW', 'PINK', 'GREEN', 'BLACK', 'WHITE', 'BLACK', 'ORANGE', 'WILD'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 33, points -52
-   placed ('PHOENIX', 'LOS ANGELES', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'BLACK', 'BLACK']
+CARDS UP ['RED', 'BLACK', 'BLUE', 'RED', 'BLACK']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES']], trains 29, points -173
+   picked up destination cards: [['PORTLAND', '11', 'PHOENIX'], ['KANSAS CITY', '5', 'HOUSTON'], ['VANCOUVER', '20', 'MONTREAL']]
+   taking ['VANCOUVER', '20', 'MONTREAL']
 
 TURN 84
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 3 ['GREEN', 'RED', 'ORANGE', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD', 'BLACK', 'GREEN', 'PINK', 'YELLOW', 'PINK', 'GREEN'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 36, points -70
-   picked up BLACK from face down deck.
-   picked up ORANGE from face down deck.
+CARDS UP ['RED', 'BLACK', 'BLUE', 'RED', 'BLACK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'ORANGE', 'ORANGE', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'ORANGE', 'ORANGE', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 24, points -99
+   placed ('NEW ORLEANS', 'ATLANTA', 1, {'weight': 4, 'color': 'ORANGE', 'owner': ''}) using ['ORANGE', 'ORANGE', 'ORANGE', 'ORANGE']
 
 TURN 85
-CARDS UP ['WILD', 'GREEN', 'WILD', 'GREEN', 'BLACK']
- PLAYER 0 ['RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'PINK', 'BLACK', 'PINK', 'RED'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 34, points -94
+CARDS UP ['RED', 'BLACK', 'BLUE', 'RED', 'BLACK']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 29, points -193
    picked up BLACK from face up deck.
-   picked up GREEN from face up deck.
+   picked up GREEN from face down deck.
 
 TURN 86
-CARDS UP ['WILD', 'WILD', 'GREEN']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE', 'GREEN', 'WHITE', 'WHITE', 'ORANGE', 'ORANGE', 'WILD', 'WHITE', 'GREEN'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up GREEN from face up deck.
-   picked up WILD from face up deck.
+CARDS UP ['RED', 'BLUE', 'RED', 'BLACK', 'BLACK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 20, points -92
+   picked up BLUE from face down deck.
+   picked up YELLOW from face down deck.
 
 TURN 87
-CARDS UP ['WILD']
- PLAYER 2 ['YELLOW', 'PINK', 'GREEN', 'WHITE', 'ORANGE'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 30, points -48
-   placed ('VANCOUVER', 'SEATTLE', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['YELLOW']
+CARDS UP ['RED', 'BLUE', 'RED', 'BLACK', 'BLACK']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK', 'BLACK', 'GREEN'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 29, points -193
+   picked up RED from face down deck.
+   picked up BLACK from face up deck.
 
 TURN 88
-CARDS UP ['WILD']
- PLAYER 3 ['GREEN', 'RED', 'ORANGE', 'WILD', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'RED', 'RED', 'BLUE', 'WILD', 'BLACK', 'GREEN', 'PINK', 'YELLOW', 'PINK', 'GREEN', 'BLACK', 'ORANGE'], destinations [['SEATTLE', '9', 'LOS ANGELES'], ['LOS ANGELES', '21', 'NEW YORK'], ['VANCOUVER', '13', 'SANTA FE'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['KANSAS CITY', '5', 'HOUSTON']], trains 36, points -70
-   placed ('RALEIGH', 'ATLANTA', 1, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['RED', 'RED']
+CARDS UP ['RED', 'BLUE', 'RED', 'BLACK', 'ORANGE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 20, points -92
+   picked up RED from face up deck.
+   picked up BLUE from face down deck.
 
 TURN 89
-CARDS UP ['WILD']
- PLAYER 0 ['RED', 'ORANGE', 'BLUE', 'WILD', 'PINK', 'RED', 'BLUE', 'PINK', 'BLACK', 'PINK', 'RED', 'BLACK', 'GREEN'], destinations [['CHICAGO', '7', 'NEW ORLEANS'], ['NEW YORK', '6', 'ATLANTA'], ['LOS ANGELES', '20', 'MIAMI'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '9', 'ATLANTA'], ['DALLAS', '11', 'NEW YORK'], ['VANCOUVER', '20', 'MONTREAL'], ['HELENA', '8', 'LOS ANGELES'], ['PORTLAND', '17', 'NASHVILLE']], trains 34, points -94
-   placed ('PITTSBURGH', 'RALEIGH', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'GREEN']
+CARDS UP ['BLUE', 'RED', 'BLACK', 'ORANGE', 'PINK']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'WHITE', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'WHITE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK', 'BLACK', 'GREEN', 'RED', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 29, points -193
+   placed ('CHICAGO', 'SAINT LOUIS', 0, {'weight': 2, 'color': 'WHITE', 'owner': ''}) using ['WHITE', 'WHITE']
 
 TURN 90
-CARDS UP ['WILD']
- PLAYER 1 ['GREEN', 'BLUE', 'WILD', 'ORANGE', 'WILD', 'YELLOW', 'RED', 'WHITE', 'ORANGE', 'BLUE', 'BLACK', 'BLUE', 'YELLOW', 'BLUE', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'GREEN', 'WILD', 'ORANGE', 'YELLOW', 'WHITE', 'GREEN', 'WHITE', 'WHITE', 'ORANGE', 'ORANGE', 'WILD', 'WHITE', 'GREEN', 'GREEN', 'WILD'], destinations [['SAN FRANCISCO', '17', 'ATLANTA'], ['DULUTH', '10', 'EL PASO'], ['BOSTON', '12', 'MIAMI'], ['DULUTH', '8', 'HOUSTON'], ['DENVER', '4', 'EL PASO'], ['SEATTLE', '22', 'NEW YORK'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY']], trains 42, points -79
-   picked up WILD from face up deck.
+CARDS UP ['BLUE', 'RED', 'BLACK', 'ORANGE', 'PINK']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 20, points -92
+   picked up ORANGE from face up deck.
+   picked up YELLOW from face down deck.
 
 TURN 91
+CARDS UP ['BLUE', 'RED', 'BLACK', 'PINK', 'ORANGE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'RED', 'ORANGE', 'BLACK', 'RED', 'BLACK', 'BLACK', 'GREEN', 'RED', 'BLACK'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 27, points -191
+   placed ('DENVER', 'KANSAS CITY', 0, {'weight': 4, 'color': 'BLACK', 'owner': ''}) using ['BLACK', 'BLACK', 'BLACK', 'BLACK']
+
+TURN 92
+CARDS UP ['BLUE', 'RED', 'BLACK', 'PINK', 'ORANGE']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 20, points -92
+   picked up RED from face up deck.
+   picked up WHITE from face down deck.
+
+TURN 93
+CARDS UP ['BLUE', 'BLACK', 'PINK', 'ORANGE', 'WHITE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'RED', 'ORANGE', 'RED', 'GREEN', 'RED'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 23, points -184
+   picked up RED from face down deck.
+   picked up BLUE from face up deck.
+
+TURN 94
+CARDS UP ['BLACK', 'PINK', 'ORANGE', 'WHITE', 'WILD']
+ PLAYER 1 ['PINK', 'YELLOW', 'PINK', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW', 'RED', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 20, points -92
+   placed ('KANSAS CITY', 'SAINT LOUIS', 1, {'weight': 2, 'color': 'PINK', 'owner': ''}) using ['PINK', 'PINK']
+
+TURN 95
+CARDS UP ['BLACK', 'PINK', 'ORANGE', 'WHITE', 'WILD']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'RED', 'ORANGE', 'RED', 'GREEN', 'RED', 'RED', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 23, points -184
+   picked up PINK from face up deck.
+   picked up YELLOW from face down deck.
+
+TURN 96
+CARDS UP ['BLACK', 'ORANGE', 'WHITE', 'WILD', 'BLUE']
+ PLAYER 1 ['YELLOW', 'WHITE', 'PINK', 'RED', 'PINK', 'YELLOW', 'WHITE', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW', 'RED', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 18, points -90
+   placed ('CHICAGO', 'SAINT LOUIS', 0, {'weight': 2, 'color': 'WHITE', 'owner': 0}) using ['WHITE', 'WHITE']
+
+TURN 97
+CARDS UP ['BLACK', 'ORANGE', 'WHITE', 'WILD', 'BLUE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'RED', 'ORANGE', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 23, points -184
+   picked up WILD from face down deck.
+   picked up WHITE from face up deck.
+
+TURN 98
+CARDS UP ['BLACK', 'ORANGE', 'WILD', 'BLUE']
+ PLAYER 1 ['YELLOW', 'PINK', 'RED', 'PINK', 'YELLOW', 'YELLOW', 'BLUE', 'WHITE', 'BLACK', 'WILD', 'WHITE', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW', 'RED', 'WHITE'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 16, points -88
+   placed ('LITTLE ROCK', 'NASHVILLE', 0, {'weight': 3, 'color': 'WHITE', 'owner': ''}) using ['WHITE', 'WHITE', 'WHITE']
+
+TURN 99
+CARDS UP ['BLACK', 'ORANGE', 'WILD', 'BLUE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'ORANGE', 'PINK', 'ORANGE', 'RED', 'ORANGE', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 23, points -184
+   placed ('CHICAGO', 'PITTSBURGH', 0, {'weight': 3, 'color': 'ORANGE', 'owner': ''}) using ['ORANGE', 'ORANGE', 'ORANGE']
+
+TURN 100
+CARDS UP ['BLACK', 'ORANGE', 'WILD', 'BLUE']
+ PLAYER 1 ['YELLOW', 'PINK', 'RED', 'PINK', 'YELLOW', 'YELLOW', 'BLUE', 'BLACK', 'WILD', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'GREEN', 'YELLOW', 'GREEN', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 13, points -84
+   placed ('PITTSBURGH', 'NEW YORK', 1, {'weight': 2, 'color': 'GREEN', 'owner': ''}) using ['GREEN', 'GREEN']
+
+TURN 101
+CARDS UP ['BLACK', 'ORANGE', 'WILD', 'BLUE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'PINK', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 20, points -180
+   picked up BLACK from face up deck.
+   picked up WILD from face up deck.
+
+TURN 102
+CARDS UP ['ORANGE', 'BLUE']
+ PLAYER 1 ['YELLOW', 'PINK', 'RED', 'PINK', 'YELLOW', 'YELLOW', 'BLUE', 'BLACK', 'WILD', 'YELLOW', 'ORANGE', 'WILD', 'BLUE', 'PINK', 'YELLOW', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'ORANGE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 11, points -82
+   placed ('NEW YORK', 'WASHINGTON', 0, {'weight': 2, 'color': 'ORANGE', 'owner': 0}) using ['ORANGE', 'ORANGE']
+
+TURN 103
+CARDS UP ['ORANGE', 'BLUE']
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'PINK', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE', 'BLACK', 'WILD'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 20, points -180
+   picked up ORANGE from face up deck.
+   picked up BLUE from face up deck.
+
+TURN 104
 CARDS UP []
- PLAYER 2 ['PINK', 'GREEN', 'WHITE', 'ORANGE'], destinations [['CALGARY', '7', 'SALT LAKE CITY'], ['WINNIPEG', '12', 'HOUSTON'], ['CALGARY', '13', 'PHOENIX'], ['DENVER', '11', 'PITTSBURGH'], ['TORONTO', '10', 'MIAMI'], ['PORTLAND', '11', 'PHOENIX']], trains 29, points -47
-   PLAYER 2 has no more valid moves. Game must end.
+ PLAYER 1 ['YELLOW', 'PINK', 'RED', 'PINK', 'YELLOW', 'YELLOW', 'BLUE', 'BLACK', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'PINK', 'YELLOW', 'GREEN', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 9, points -80
+   placed ('DALLAS', 'HOUSTON', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['GREEN']
+
+TURN 105
+CARDS UP []
+ PLAYER 0 ['PINK', 'PINK', 'RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'PINK', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE', 'BLACK', 'WILD', 'ORANGE', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 20, points -180
+   placed ('PHOENIX', 'LOS ANGELES', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['PINK', 'PINK', 'PINK']
+
+TURN 106
+CARDS UP []
+ PLAYER 1 ['YELLOW', 'PINK', 'RED', 'PINK', 'YELLOW', 'YELLOW', 'BLUE', 'BLACK', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'PINK', 'YELLOW', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 8, points -79
+   placed ('CHARLESTON', 'ATLANTA', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['YELLOW', 'YELLOW']
+
+TURN 107
+CARDS UP []
+ PLAYER 0 ['RED', 'YELLOW', 'GREEN', 'WILD', 'GREEN', 'WILD', 'GREEN', 'WILD', 'YELLOW', 'WILD', 'RED', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE', 'BLACK', 'WILD', 'ORANGE', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 17, points -176
+   placed ('DULUTH', 'SAULT ST. MARIE', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'WILD', 'WILD']
+
+TURN 108
+CARDS UP []
+ PLAYER 1 ['PINK', 'RED', 'PINK', 'YELLOW', 'BLUE', 'BLACK', 'WILD', 'YELLOW', 'WILD', 'BLUE', 'PINK', 'YELLOW', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 6, points -77
+   placed ('OKLAHOMA CITY', 'DALLAS', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['WILD', 'WILD']
+
+TURN 109
+CARDS UP []
+ PLAYER 0 ['RED', 'YELLOW', 'GREEN', 'GREEN', 'GREEN', 'YELLOW', 'WILD', 'RED', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'YELLOW', 'WILD', 'WHITE', 'BLACK', 'WILD', 'ORANGE', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 14, points -172
+   placed ('PHOENIX', 'EL PASO', 0, {'weight': 3, 'color': 'GRAY', 'owner': ''}) using ['YELLOW', 'YELLOW', 'YELLOW']
+
+TURN 110
+CARDS UP []
+ PLAYER 1 ['PINK', 'RED', 'PINK', 'YELLOW', 'BLUE', 'BLACK', 'YELLOW', 'BLUE', 'PINK', 'YELLOW', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 4, points -75
+   placed ('SEATTLE', 'PORTLAND', 1, {'weight': 1, 'color': 'GRAY', 'owner': ''}) using ['RED']
+
+TURN 111
+CARDS UP []
+ PLAYER 0 ['RED', 'GREEN', 'GREEN', 'GREEN', 'WILD', 'RED', 'RED', 'RED', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'WILD', 'WHITE', 'BLACK', 'WILD', 'ORANGE', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 11, points -168
+   placed ('DALLAS', 'EL PASO', 0, {'weight': 4, 'color': 'RED', 'owner': ''}) using ['RED', 'RED', 'RED', 'RED']
+
+TURN 112
+CARDS UP []
+ PLAYER 1 ['PINK', 'PINK', 'YELLOW', 'BLUE', 'BLACK', 'YELLOW', 'BLUE', 'PINK', 'YELLOW', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 3, points -74
+   placed ('DENVER', 'SALT LAKE CITY', 1, {'weight': 3, 'color': 'YELLOW', 'owner': ''}) using ['YELLOW', 'YELLOW', 'YELLOW']
+
+PLAYER 1 INITIATES LAST ROUND
+
+TURN 113
+CARDS UP []
+ PLAYER 0 ['GREEN', 'GREEN', 'GREEN', 'WILD', 'GREEN', 'RED', 'RED', 'BLUE', 'PINK', 'WILD', 'WHITE', 'BLACK', 'WILD', 'ORANGE', 'BLUE'], destinations [['DULUTH', '10', 'EL PASO'], ['CALGARY', '13', 'PHOENIX'], ['DULUTH', '8', 'HOUSTON'], ['VANCOUVER', '13', 'SANTA FE'], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY'], ['SAULT ST. MARIE', '8', 'NASHVILLE'], ['MONTREAL', '13', 'NEW ORLEANS'], ['WINNIPEG', '11', 'LITTLE ROCK'], ['SEATTLE', '22', 'NEW YORK'], ['DALLAS', '11', 'NEW YORK'], ['CHICAGO', '7', 'NEW ORLEANS'], ['SAN FRANCISCO', '17', 'ATLANTA'], ['HELENA', '8', 'LOS ANGELES'], ['DENVER', '4', 'EL PASO'], ['LOS ANGELES', '16', 'CHICAGO'], ['TORONTO', '10', 'MIAMI'], ['SEATTLE', '9', 'LOS ANGELES'], ['VANCOUVER', '20', 'MONTREAL']], trains 7, points -161
+   placed ('OKLAHOMA CITY', 'LITTLE ROCK', 0, {'weight': 2, 'color': 'GRAY', 'owner': ''}) using ['RED', 'RED']
+
+TURN 114
+CARDS UP []
+ PLAYER 1 ['PINK', 'PINK', 'BLUE', 'BLACK', 'BLUE', 'PINK', 'BLUE', 'YELLOW', 'RED', 'BLUE', 'YELLOW', 'RED'], destinations [['DENVER', '11', 'PITTSBURGH'], ['WINNIPEG', '12', 'HOUSTON'], ['LOS ANGELES', '21', 'NEW YORK'], ['CALGARY', '7', 'SALT LAKE CITY'], ['PORTLAND', '17', 'NASHVILLE'], ['LOS ANGELES', '20', 'MIAMI'], ['BOSTON', '12', 'MIAMI'], ['NEW YORK', '6', 'ATLANTA'], ['CHICAGO', '9', 'SANTA FE'], ['MONTREAL', '9', 'ATLANTA']], trains 0, points -70
+   PLAYER 1 has no more valid moves. Game must end.

@@ -347,7 +347,7 @@ class Game:
         if action == 0:
             store = self.placeTrains(player, actionDistribution, cardDistribution)
             if store == False:
-                valid = self.validGameMoves
+                valid = deepcopy(self.validGameMoves)
                 valid.remove(0)
                 self.performAction(player, False, valid)
         # Agent wants to draw from the face up pile
@@ -400,7 +400,10 @@ class Game:
                     self.validGameMoves.remove(1)
 
                 # Logging
-                if self.doLogs == True:
+                if self.debug:
+                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"]
+                    self.logs = self.logs + addLogs
+                elif self.doLogs:
                     addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"]
                     self.logs = self.logs + addLogs
 
@@ -427,8 +430,11 @@ class Game:
                     self.turn += 1
                     
                 else:
-                    self.performAction(player)
-
+                    if self.validGameMoves != []:
+                        self.performAction(player)
+                    else:
+                        self.gameOver = True
+                        break
                     if player.trainsLeft < 3:
                         lastTurn = True
                         self.gameOver = True
@@ -441,7 +447,7 @@ class Game:
                 
                 if self.gameOver == True:
                     break
-        
+
         if lastTurn == True:
             if endedGame == len(self.players) - 1:
                 playerOrder = [z for z in range(len(self.players))]
@@ -452,8 +458,11 @@ class Game:
 
             for playerIndex in playerOrder:
                 self.turn += 1
-                if self.doLogs == True:
+                if self.doLogs:
                     addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
+                    self.logs = self.logs + addLogs
+                elif self.debug:
+                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
                     self.logs = self.logs + addLogs
                 self.performAction(self.players[playerIndex])
 
@@ -495,7 +504,7 @@ class Simulate:
 
     def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int) -> None:
         if runs == 1:
-            Game(map, players, logs, debug, True)
+            Game(map, players, logs, debug, False)
         else:
             while runs != 0:
                 game = Game(map, players, logs, debug, False)

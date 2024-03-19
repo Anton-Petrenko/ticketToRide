@@ -38,6 +38,9 @@ class Agent:
 
 class Random(Agent):
     def __init__(self, name="Random") -> None:
+        """
+        Completely random agent for Ticket to Ride.
+        """
         Agent.__init__(self, name)
 
     def firstTurn(self, deal: list[list[str]]) -> list[int]:

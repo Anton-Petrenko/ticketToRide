@@ -10,4 +10,5 @@ agents = [Random(), Random(), Random()]
 # Games to simulate - only works as 1 right now.
 games = 1
 
-Simulate(map, agents, True, False, games)
+# Run the engine
+Simulate(map, agents, True, True, games)

@@ -1,11 +1,13 @@
-from engine.build import Game
+from engine.build import Game, Simulate
 from engine.players import Random
 
 # Map specification
 map = "USA"
 
 # Player specification
-agents = [Random(), Random()]
+agents = [Random(), Random(), Random()]
 
-# Run the game
-Game(map, agents, True, False, drawGame=True)
+# Games to simulate - only works as 1 right now.
+games = 1
+
+Simulate(map, agents, True, False, games)

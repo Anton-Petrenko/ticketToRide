@@ -1,6 +1,5 @@
 import random
 import networkx as nx
-import engine
 from copy import deepcopy
 from itertools import repeat
 from matplotlib import pyplot
@@ -10,9 +9,8 @@ from engine.data import getPaths, getDestinationCards, pointsByLength, colors
 
 """
 TODO:
-2. In 2 or 3 player games, only one placeable edge is allowed - this constraint has not been implemented yet.
-3. Longest route bonus is not given out at the end.
-4. Right now it only simulates one game. Need it to simulate a batch of games and gather the data.
+1. Longest route bonus is not given out at the end.
+2. Right now it only simulates one game. Need it to simulate a batch of games and gather the data.
 """
 
 class Game:
@@ -67,7 +65,10 @@ class Game:
 
         # Build the board
         self.board = nx.MultiGraph()
-        self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName))
+        if len(self.players) == 4:
+            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName))
+        else:
+            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName) if self.board.has_edge(path[0], path[3]) == False)
         
         # Build the train car deck
         traincar_deck = ['PINK']*12+['WHITE']*12+['BLUE']*12+['YELLOW']*12+['ORANGE']*12+['BLACK']*12+['RED']*12+['GREEN']*12+['WILD']*14
@@ -134,6 +135,7 @@ class Game:
         route = None
 
         for action in actionDistribution:
+            isTaken = False
             route = self.actionMap[0][action]
             if len(self.board.get_edge_data(route[0], route[1]).values()) > 1:
                 for path in self.board.get_edge_data(route[0], route[1]).values():
@@ -192,10 +194,21 @@ class Game:
                             cards = list(repeat(color, route[3].get('weight')))
                             canAfford = True
                             break
-
-            elif player.hand_trainCards.count(route[3].get('color')) >= route[3].get('weight'):
-                cards = list(repeat(route[3].get('color'), route[3].get('weight')))
-                canAfford = True
+            else:
+                if cardDistribution.index('WILD') < cardDistribution.index(route[3].get('color')):
+                    if player.hand_trainCards.count(route[3].get('color')) >= route[3].get('weight'):
+                        cards = list(repeat(route[3].get('color'), route[3].get('weight')))
+                        canAfford = True
+                    elif player.hand_trainCards.count('WILD') >= route[3].get('weight'):
+                        cards = list(repeat('WILD', route[3].get('weight')))
+                        canAfford = True
+                else:
+                    if player.hand_trainCards.count('WILD') >= route[3].get('weight'):
+                        cards = list(repeat('WILD', route[3].get('weight')))
+                        canAfford = True
+                    elif player.hand_trainCards.count(route[3].get('color')) >= route[3].get('weight'):
+                        cards = list(repeat(route[3].get('color'), route[3].get('weight')))
+                        canAfford = True
             
             if self.debug and canAfford == False:
                 self.logs = self.logs + [f"    wanted {route} but lacking cards.\n"]
@@ -217,12 +230,14 @@ class Game:
                 # print(f"   {self.board.get_edge_data(route[0], route[1]).values()}")
                 break
         
-        if canAfford == False:
+        if canAfford == False and self.validGameMoves == [0]:
             if self.doLogs:
-                self.logs = self.logs + [f"   PLAYER {player.turnOrder} has no more valid moves. Game must end.\n"]
+                self.logs = self.logs + [f"   PLAYER {player.turnOrder} has no more valid moves. Game must end. {self.validGameMoves}\n"]
             self.gameOver = True
+        if canAfford == False:
+            return False
     
-    def drawFaceUp(self, player: Agent, cardDistribution: list[str]) -> bool:
+    def drawFaceUp(self, player: Agent, cardDistribution: list[str], requery) -> bool:
         """
         Takes the distributions for drawing from the face up cards and performs one draw of the face up card, updating the game to reflect it.
 
@@ -237,6 +252,8 @@ class Game:
         isWild = bool
         for color in cardDistribution:
             isWild = True if color == "WILD" else False
+            if isWild and requery:
+                continue
             if color in self.faceUpCards:
                 player.hand_trainCards.append(color)
                 self.faceUpCards.remove(color)
@@ -308,6 +325,10 @@ class Game:
 
         * Responsible for updating the game state after each player's turn
         """
+        if i == []:
+            self.gameOver = True
+            return
+
         # If not asking for specific move
         if i == None:
             action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap)
@@ -324,10 +345,14 @@ class Game:
     
         # Agent wants to place trains
         if action == 0:
-            self.placeTrains(player, actionDistribution, cardDistribution)
+            store = self.placeTrains(player, actionDistribution, cardDistribution)
+            if store == False:
+                valid = self.validGameMoves
+                valid.remove(0)
+                self.performAction(player, False, valid)
         # Agent wants to draw from the face up pile
         elif action == 1:
-            anotherMove = self.drawFaceUp(player, cardDistribution)
+            anotherMove = self.drawFaceUp(player, cardDistribution, requery)
             if anotherMove and requery == False:
                 # Requery the agent with valid moves 1 and 2 available - drawing from face up or down cards.
                 x = []
@@ -442,7 +467,7 @@ class Game:
         # 2. Check that graph and tally the points
         # 3. Do that for all players
         if self.drawGame:
-            pos = nx.spectral_layout(self.board) 
+            pos = nx.spring_layout(self.board) 
             nx.draw_networkx_nodes(self.board, pos)
             nx.draw_networkx_labels(self.board, pos, font_size=6)
         for player in self.players:
@@ -465,3 +490,13 @@ class Game:
     def log(self):
         logs = open("log.txt", "w")
         logs.writelines(self.logs)
+
+class Simulate:
+
+    def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int) -> None:
+        if runs == 1:
+            Game(map, players, logs, debug, True)
+        else:
+            while runs != 0:
+                game = Game(map, players, logs, debug, False)
+                runs -= 1

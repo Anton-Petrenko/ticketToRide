@@ -37,8 +37,8 @@ class Agent:
         """
 
 class Random(Agent):
-    def __init__(self) -> None:
-        Agent.__init__(self, "Random")
+    def __init__(self, name="Random") -> None:
+        Agent.__init__(self, name)
 
     def firstTurn(self, deal: list[list[str]]) -> list[int]:
         selections = sample([0, 1, 2], randint(2, 3))

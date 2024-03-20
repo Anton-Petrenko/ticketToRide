@@ -11,6 +11,7 @@ class Agent:
         self.hand_destinationCards = []
         self.trainsLeft = 45
         self.points = 0
+        self.color = str
         self.turnOrder = int
 
     def firstTurn(self, deal: list[list[str]]) -> list[int]:

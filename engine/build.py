@@ -34,7 +34,7 @@ class Game:
         self.mapName = map
         self.gameOver = False
         self.drawGame = drawGame
-        self.logs = list[str]
+        self.logs = []
         self.board = nx.MultiGraph
         self.board_placed = nx.MultiGraph
         self.faceUpCards = list[str]
@@ -338,6 +338,8 @@ class Game:
         else:
             if i[0] == 3:
                 draw = [self.destinationsDeck.pop(), self.destinationsDeck.pop(), self.destinationsDeck.pop()]
+                if len(self.destinationsDeck) < 3:
+                    self.validGameMoves.remove(3)
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i, destCardDeal=draw)
                 self.drawDestinationCards(player, actionDistribution, draw)
             else:
@@ -400,11 +402,11 @@ class Game:
                     self.validGameMoves.remove(1)
 
                 # Logging
-                if self.debug:
-                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"]
-                    self.logs = self.logs + addLogs
-                elif self.doLogs:
-                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"]
+                if self.doLogs:
+                    if self.debug:
+                        addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}\n", f"DEST DECK {self.destinationsDeck}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"] 
+                    else:
+                        addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {player.turnOrder} {player.hand_trainCards}, destinations {player.hand_destinationCards}, trains {player.trainsLeft}, points {player.points}\n"]
                     self.logs = self.logs + addLogs
 
                 # Starting the game (deal out initial destination cards)
@@ -459,10 +461,10 @@ class Game:
             for playerIndex in playerOrder:
                 self.turn += 1
                 if self.doLogs:
-                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
-                    self.logs = self.logs + addLogs
-                elif self.debug:
-                    addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
+                    if self.debug:
+                        addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
+                    else:
+                        addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
                     self.logs = self.logs + addLogs
                 self.performAction(self.players[playerIndex])
 
@@ -493,8 +495,14 @@ class Game:
                         self.logs = self.logs + [f"PLAYER {player.turnOrder} awarded {route[1]} points for completing {route}\n"]
             if self.drawGame:     
                 nx.draw_networkx_edges(self.board, pos, edges, edge_color=colors[player.turnOrder], connectionstyle=f"arc3, rad = 0.{player.turnOrder}", arrows=True)
-        for player in self.players:
-            print(f"PLAYER {player.turnOrder + 1} ({player.name}): {player.points}")
+                player.color = colors[player.turnOrder]
+        
+        if self.drawGame:
+            for player in self.players:
+                if self.drawGame:
+                    print(f"PLAYER {player.turnOrder + 1} ({player.name}): {player.points} [{player.color}]")
+                else:
+                    print(f"PLAYER {player.turnOrder + 1} ({player.name}): {player.points}")
 
     def log(self):
         logs = open("log.txt", "w")
@@ -502,10 +510,29 @@ class Game:
 
 class Simulate:
 
-    def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int) -> None:
+    def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int, drawGame: bool) -> None:
+
+        iterations = runs
+
         if runs == 1:
-            Game(map, players, logs, debug, False)
+            Game(map, players, logs, debug, drawGame)
+
         else:
+
+            playerInfo = { player.name: 0 for player in players }
+            print(f"Simulating {runs} games...")
+
             while runs != 0:
+
+                for player in players:
+                    player = player.__init__(player.name)
+
                 game = Game(map, players, logs, debug, False)
+
+                for player in players:
+                    playerInfo[player.name] += player.points
+
                 runs -= 1
+            
+            for name, points in playerInfo.items():
+                print(f"{name} {points/iterations} avg points")

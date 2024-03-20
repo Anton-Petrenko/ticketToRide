@@ -1,7 +1,7 @@
 import re
 
 pointsByLength = {1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15}
-colors = {0: 'red', 1: 'blue', 2: 'orange', 3: 'purple'}
+colors = {0: 'red', 1: 'blue', 2: 'orange', 3: 'green'}
 
 def getPaths(map: str) -> list[list[str]]:
     """

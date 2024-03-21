@@ -1,3 +1,4 @@
+import time
 import random
 import networkx as nx
 from copy import deepcopy
@@ -478,7 +479,7 @@ class Game:
         # 2. Check that graph and tally the points
         # 3. Do that for all players
         if self.drawGame:
-            pos = nx.spring_layout(self.board) 
+            pos = nx.spectral_layout(self.board) 
             nx.draw_networkx_nodes(self.board, pos)
             nx.draw_networkx_labels(self.board, pos, font_size=6)
         for player in self.players:
@@ -518,6 +519,8 @@ class Simulate:
             Game(map, players, logs, debug, drawGame)
 
         else:
+            
+            start = time.time()
 
             playerInfo = { player.name: 0 for player in players }
             print(f"Simulating {runs} games...")
@@ -536,3 +539,6 @@ class Simulate:
             
             for name, points in playerInfo.items():
                 print(f"{name} {points/iterations} avg points")
+            
+            end = time.time()
+            print(f"Completed in {round(end-start, 2)} seconds")

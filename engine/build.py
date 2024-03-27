@@ -510,6 +510,21 @@ class Game:
         logs.writelines(self.logs)
 
 class Simulate:
+    """
+    Play a single or batch of Ticket to Ride games using the engine
+    
+    map - "USA"
+
+    games - # of games to simulate
+
+    agents - a list of 2-4 agents available: "Random"
+
+    logs - print the logs to log.txt (if multiple games simulated, will only print last one)
+
+    debug - add more descriptive statements to the logs
+
+    drawGame - only for single-game simulations, will draw the final game map using matplotlib
+    """
 
     def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int, drawGame: bool) -> None:
 

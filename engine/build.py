@@ -11,7 +11,6 @@ from engine.data import getPaths, getDestinationCards, pointsByLength, colors
 """
 TODO:
 1. Longest route bonus is not given out at the end.
-2. Right now it only simulates one game. Need it to simulate a batch of games and gather the data.
 """
 
 class Game:

@@ -6,6 +6,7 @@ from itertools import repeat
 from matplotlib import pyplot
 from collections import deque
 from engine.players import Agent
+# from models.mcts import MonteCarloSearch, Node
 from engine.data import getPaths, getDestinationCards, pointsByLength, colors
 
 """
@@ -29,14 +30,15 @@ class Game:
 
         drawGame = a boolean to see a loose representation of the ending game map
         """
+        self.logs = []
         self.debug = debug
         self.doLogs = logs
         self.mapName = map
         self.gameOver = False
         self.drawGame = drawGame
-        self.logs = []
+        self.movePerforming = None
+        """Denotes which move (by index) has changed the game state but not whose turn it is. None if turn is new"""
         self.board = nx.MultiGraph
-        self.board_placed = nx.MultiGraph
         self.faceUpCards = list[str]
         self.trainCarDeck = deque[str]
         self.destinationCards = list[str]
@@ -57,7 +59,7 @@ class Game:
             self.log()
         if self.drawGame:
             pyplot.show()
-    
+
     def build(self) -> None:
         """
         Builds a networkx MultiGraph representation of the map and the decks to be used as deques
@@ -325,6 +327,12 @@ class Game:
 
         * Responsible for updating the game state after each player's turn
         """
+        
+        # Debug - currently testing only destination card pickups for MCTS
+        if i != None and i[0]==3:
+            self.gameOver = True
+            return
+        
         if i == []:
             self.gameOver = True
             return
@@ -342,27 +350,34 @@ class Game:
                     self.validGameMoves.remove(3)
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i, destCardDeal=draw)
                 self.drawDestinationCards(player, actionDistribution, draw)
+                self.movePerforming = None
             else:
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i)           
     
         # Agent wants to place trains
         if action == 0:
-            store = self.placeTrains(player, actionDistribution, cardDistribution)
-            if store == False:
+            canPlace = self.placeTrains(player, actionDistribution, cardDistribution)
+            # Train placement is per person, not universal - if it tries and can't, ask for something else.
+            if canPlace == False:
                 valid = deepcopy(self.validGameMoves)
                 valid.remove(0)
                 self.performAction(player, False, valid)
+            else:
+                self.movePerforming = None
         # Agent wants to draw from the face up pile
         elif action == 1:
             anotherMove = self.drawFaceUp(player, cardDistribution, requery)
             if anotherMove and requery == False:
                 # Requery the agent with valid moves 1 and 2 available - drawing from face up or down cards.
+                self.movePerforming = 1
                 x = []
                 if 1 in self.validGameMoves:
                     x.append(1)
                 if 2 in self.validGameMoves:
                     x.append(2)
                 self.performAction(player, requery=True, i=x)
+            else:
+                self.movePerforming = None
         # Agent wants to draw from the face down pile
         elif action == 2:
             color = self.trainCarDeck.pop()
@@ -374,14 +389,18 @@ class Game:
             if self.doLogs:
                 self.logs = self.logs + [f"   picked up {color} from face down deck.\n"]
             if requery == False:
+                self.movePerforming = 2
                 x = []
                 if 1 in self.validGameMoves:
                     x.append(1)
                 if 2 in self.validGameMoves:
                     x.append(2)
                 self.performAction(player, requery=True, i=x)
+            else:
+                self.movePerforming = None
         # Agent wants to draw new destination cards
         elif action == 3 and requery == False:
+            self.movePerforming = 3
             self.performAction(player, i=[3], requery=True)
             
     def play(self):
@@ -508,51 +527,70 @@ class Game:
         logs = open("log.txt", "w")
         logs.writelines(self.logs)
 
-class Simulate:
+class State:
     """
-    Play a single or batch of Ticket to Ride games using the engine
-    
-    map - "USA"
-
-    games - # of games to simulate
-
-    agents - a list of 2-4 agents available: "Random"
-
-    logs - print the logs to log.txt (if multiple games simulated, will only print last one)
-
-    debug - add more descriptive statements to the logs
-
-    drawGame - only for single-game simulations, will draw the final game map using matplotlib
+    A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
     """
+    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int) -> None:
+        self.map = map
+        self.turn = turn
+        self.players = players
+        self.board = deepcopy(board)
+        self.followUpFromMove = followUpFromMove
+        self.faceUpCards = deepcopy(faceUpCards)
+        self.trainCarDeck = deepcopy(trainCarDeck)
+        self.destinationDeck = deepcopy(destinationDeck)
+        self.currentPlayer = players[(turn+1) % len(players)].turnOrder
 
-    def __init__(self, map: str, players: list[Agent], logs: bool, debug: bool, runs: int, drawGame: bool) -> None:
+class Action:
+    """
+    A class to denote actions for MCTS
 
-        iterations = runs
+    Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)
+    """
+    def __init__(self, action: int, routeToPlace=None, colorsUsed=None, colorPicked=None, destinationsPicked=None) -> None:
 
-        if runs == 1:
-            Game(map, players, logs, debug, drawGame)
+        self.action = action
+        """Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)"""
 
-        else:
-            
-            start = time.time()
+        if self.action == 0:
 
-            playerInfo = { player.name: 0 for player in players }
-            print(f"Simulating {runs} games...")
+            self.routeToPlace = routeToPlace
+            """Action 0 - route to place"""
+            self.colorsUsed = colorsUsed
+            """Action 0 - colors used to place the hand where leftmost is the most frequent"""
+        
+        elif self.action == 1:
 
-            while runs != 0:
+            self.colorPicked = colorPicked
+            """Action 1 - color to pick up"""
+        
+        elif self.action == 3:
 
-                for player in players:
-                    player = player.__init__(player.name)
+            self.destinationsPicked = destinationsPicked
+            """Action 3 - destination cards picked up by index"""
 
-                game = Game(map, players, logs, debug, False)
+class Input:
+    """
+    A class meant to store data needed for the neural network.
 
-                for player in players:
-                    playerInfo[player.name] += player.points
+    Parameters
+    ----------
 
-                runs -= 1
-            
-            for name, points in playerInfo.items():
-                print(f"{name} {points/iterations} avg points")
-            
-            end = time.time()
-            print(f"Completed in {round(end-start, 2)} seconds")
+    routesPerPlayer - a list of length 4x where the first x indexes are one-hot and representing whether the player to move has the route. The subsequent x, 2x-3x, and 3x-4x spaces are meant to represent the other players' routes in the order of the game turns. Refer to structure in data.py for mapping indexes to specific route.
+
+    destinationsPerPlayer - a list of length 4 where each space represents the count of destination cards per player. Index 0 must represent the hand of the player to move. The subsequent spaces must represent the opponent hands in order of the game turns.
+
+    colorsPerPlayer - a list of length 39 where the first 9 indexes represent the colors held by the current players. The next 9-19, 19-29, and 29-39 indexes are the counts of the colors for each opponent hand, following the format [P, W, BLU, Y, O, BLA, R, G, RNBW, ?] where ? is the unknown number of cards by the current player. The first 9 indexes exclude the unknown value. Subsequent spaces must represent opponent hands in order of the game turns.
+
+    colorsAvailable - a list of length 9 where each index represents the count of colors available for pick up from the board. [P, W, BLU, Y, O, BLA, R, G, RNBW]
+
+    destinationsAvailable - a list of length y where each index is responsible for representing in binary whether a destination card can be immediately picked up by the player and placed into their hand. Refer to structure in data.py for mapping indexes to specific destinations.
+
+    destinationHand - a list of length y where each index is responsible for representing in binary whether a destination card is currently held by the current player. Refer to structure in data.py for mapping indexes to specific destinations.
+
+    colorHand - a list of length 9 where each index represents the count of colors in the current players' hand. [P, W, BLU, Y, O, BLA, R, G, RNBW]
+
+    """
+    def __init__(self, routesPerPlayer: list[int], destinationsPerPlayer: list[int], colorsPerPlayer: list[int], colorsAvailable: list[int], destinationsAvailable: list[int], destinationHand: list[int], colorHand: list[int]) -> None:
+        pass

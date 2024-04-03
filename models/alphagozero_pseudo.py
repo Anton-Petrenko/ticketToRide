@@ -217,8 +217,8 @@ def play_game(config: AlphaZeroConfig, network: Network):
 # reach a leaf node.
 def run_mcts(config: AlphaZeroConfig, game: Game, network: Network):
   root = Node(0)
-  evaluate(root, game, network)
-  add_exploration_noise(config, root)
+  evaluate(root, game, network) ## send input through NN
+  add_exploration_noise(config, root) ## adding noise to mcts for exploration, adds 
 
   for _ in range(config.num_simulations):
     node = root
@@ -255,26 +255,27 @@ def select_child(config: AlphaZeroConfig, node: Node):
 # The score for a node is based on its value, plus an exploration bonus based on
 # the prior.
 def ucb_score(config: AlphaZeroConfig, parent: Node, child: Node):
-  pb_c = math.log((parent.visit_count + config.pb_c_base + 1) /
+  pb_c = math.log((parent.visit_count + config.pb_c_base + 1) / # Cpuct from paper
                   config.pb_c_base) + config.pb_c_init
-  pb_c *= math.sqrt(parent.visit_count) / (child.visit_count + 1)
+  pb_c *= math.sqrt(parent.visit_count) / (child.visit_count + 1) # Cpuct * Right Side of U(s, a) equation
 
-  prior_score = pb_c * child.prior
-  value_score = child.value()
-  return prior_score + value_score
+  prior_score = pb_c * child.prior # P(s, a) * everything else = U(s, a)
+  value_score = child.value() # Getting Q(s, a)
+  return prior_score + value_score # Q(s, a) + U(s, a)
 
 
 # We use the neural network to obtain a value and policy prediction.
 def evaluate(node: Node, game: Game, network: Network):
-  value, policy_logits = network.inference(game.make_image(-1))
+  value, policy_logits = network.inference(game.make_image(-1)) # Obtains (p, v)
 
   # Expand the node.
-  node.to_play = game.to_play()
-  policy = {a: math.exp(policy_logits[a]) for a in game.legal_actions()}
-  policy_sum = sum(policy.itervalues())
-  for action, p in policy.iteritems():
+  node.to_play = game.to_play() # Set the nodes "to_play" value to reflect whether this player is making the next move
+  policy = {a: math.exp(policy_logits[a]) for a in game.legal_actions()} # Map every legal action to the value from the neural net squared
+  policy_sum = sum(policy.itervalues()) # Sum all values from dict above (sum the squares)
+  for action, p in policy.iteritems(): 
+    # for each action: nn value^2 in the dictionary, add children to the given node and set their prior probabilities
     node.children[action] = Node(p / policy_sum)
-  return value
+  return value # return the winning probability only
 
 
 # At the end of a simulation, we propagate the evaluation all the way up the

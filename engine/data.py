@@ -12,7 +12,6 @@ def getPaths(map: str) -> list[list[str]]:
     for path in lines:
         data = re.search('(^\D+)(\d)\W+(\w+)\W+(.+)', path)
         paths.append([data.group(1).strip(), data.group(2).strip(), data.group(3).strip(), data.group(4).strip()])
-
     return paths
 
 def getDestinationCards(map: str) -> list[list[str]]:
@@ -21,11 +20,16 @@ def getDestinationCards(map: str) -> list[list[str]]:
     """
     lines = open(f"engine/{map}_destinations.txt").readlines()
     cards = []
+    i = 0
     for card in lines:
         data = re.search('(^\D+)(\d+)\s(.+)', card)
-        cards.append([data.group(1).strip(), data.group(2).strip(), data.group(3).strip()])
+        cards.append([data.group(1).strip(), data.group(2).strip(), data.group(3).strip(), i])
+        i += 1
     
     return cards
 
 def listColors() -> list[str]:
     return ['PINK', 'WHITE', 'BLUE', 'YELLOW', 'ORANGE', 'BLACK', 'RED', 'GREEN', 'WILD']
+
+def listDestTakes() -> list[list[int]]:
+    return [[0], [1], [2], [0, 1], [0, 2], [1, 2], [0, 1, 2]]

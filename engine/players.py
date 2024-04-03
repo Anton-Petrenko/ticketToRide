@@ -37,6 +37,14 @@ class Agent:
         action desires depend on the map, but generally will be an iterable describing specifics of the chosen action
         """
 
+class AI(Agent):
+    def __init__(self, name: str = "Network") -> None:
+        """
+        The AI agent for ticket to ride
+        """
+        Agent.__init__(self, name)
+
+
 class Random(Agent):
     def __init__(self, name="Random") -> None:
         """
@@ -62,7 +70,6 @@ class Random(Agent):
         shuffle(cardsDistribution)
         move = (i, actionDistribution, cardsDistribution)
         return move
-
 
 class Human(Agent):
     def __init__(self) -> None:

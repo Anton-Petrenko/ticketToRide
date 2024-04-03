@@ -7,7 +7,7 @@ from matplotlib import pyplot
 from collections import deque
 from engine.players import Agent
 # from models.mcts import MonteCarloSearch, Node
-from engine.data import getPaths, getDestinationCards, pointsByLength, colors
+from engine.data import getPaths, getDestinationCards, listColors, pointsByLength, colors
 
 """
 TODO:
@@ -68,9 +68,9 @@ class Game:
         # Build the board
         self.board = nx.MultiGraph()
         if len(self.players) == 4:
-            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName))
+            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': '', 'index': path[4]}) for path in getPaths(self.mapName))
         else:
-            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': ''}) for path in getPaths(self.mapName) if self.board.has_edge(path[0], path[3]) == False)
+            self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': '', 'index': path[4]}) for path in getPaths(self.mapName) if self.board.has_edge(path[0], path[3]) == False)
         
         # Build the train car deck
         traincar_deck = ['PINK']*12+['WHITE']*12+['BLUE']*12+['YELLOW']*12+['ORANGE']*12+['BLACK']*12+['RED']*12+['GREEN']*12+['WILD']*14
@@ -96,7 +96,7 @@ class Game:
         for i, player in enumerate(self.players):
             for _ in range(4):
                 player.hand_trainCards.append(self.trainCarDeck.pop())
-                
+            player.colorCounting = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 4], [0, 0, 0, 0, 0, 0, 0, 0, 0, 4], [0, 0, 0, 0, 0, 0, 0, 0, 0, 4], [0, 0, 0, 0, 0, 0, 0, 0, 0, 4]]
             player.turnOrder = i
 
             if self.doLogs == True:
@@ -219,6 +219,14 @@ class Game:
                 # print(f"   {self.board.get_edge_data(route[0], route[1]).values()}")
                 if self.doLogs:
                     self.logs = self.logs + [f"   placed {route} using {cards}\n"]
+                # Card counting
+                colorIndexes = listColors()
+                for agent in self.players:
+                    for color_ in cards:
+                        if agent.colorCounting[player.turnOrder][colorIndexes.index(color_)] != 0:
+                            agent.colorCounting[player.turnOrder][colorIndexes.index(color_)] -= 1
+                        else:
+                            agent.colorCounting[player.turnOrder][9] -= 1
                 # 1. Update the player train count and the player hand
                 player.points += pointsByLength[route[3].get('weight')]
                 player.trainsLeft = player.trainsLeft - route[3].get('weight')
@@ -263,6 +271,11 @@ class Game:
                     self.faceUpCards.append(self.trainCarDeck.pop())
                     if len(self.trainCarDeck) == 0:
                         self.validGameMoves.remove(2)
+
+                # Card counting
+                colorIndexes = listColors()
+                for agent in self.players:
+                    agent.colorCounting[player.turnOrder][colorIndexes.index(color)] += 1
 
                 # Logging
                 if self.doLogs:
@@ -329,7 +342,7 @@ class Game:
         """
         
         # Debug - currently testing only destination card pickups for MCTS
-        if i != None and i[0]==3:
+        if random.randint(0, 25) == 3:
             self.gameOver = True
             return
         
@@ -382,6 +395,13 @@ class Game:
         elif action == 2:
             color = self.trainCarDeck.pop()
             player.hand_trainCards.append(color)
+            # Card counting
+            colorIndexes = listColors()
+            for agent in self.players:
+                if agent.turnOrder == player.turnOrder:
+                    agent.colorCounting[player.turnOrder][colorIndexes.index(color)] += 1
+                else:
+                    agent.colorCounting[player.turnOrder][9] += 1
             # Recheck for validity
             if len(self.trainCarDeck) == 0:
                 self.validGameMoves.remove(2)
@@ -478,7 +498,6 @@ class Game:
                 playerOrder = [z for z in range(endedGame, len(self.players))] + [x for x in range(0, endedGame)]
 
             for playerIndex in playerOrder:
-                self.turn += 1
                 if self.doLogs:
                     if self.debug:
                         addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f"CARDS DOWN {self.trainCarDeck}", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
@@ -486,6 +505,7 @@ class Game:
                         addLogs = [f"\nTURN {self.turn}\n", f"CARDS UP {self.faceUpCards}\n", f" PLAYER {self.players[playerIndex].turnOrder} {self.players[playerIndex].hand_trainCards}, destinations {self.players[playerIndex].hand_destinationCards}, trains {self.players[playerIndex].trainsLeft}, points {self.players[playerIndex].points}\n"]
                     self.logs = self.logs + addLogs
                 self.performAction(self.players[playerIndex])
+                self.turn += 1
 
     def endGame(self):
         """
@@ -540,7 +560,7 @@ class State:
         self.faceUpCards = deepcopy(faceUpCards)
         self.trainCarDeck = deepcopy(trainCarDeck)
         self.destinationDeck = deepcopy(destinationDeck)
-        self.currentPlayer = players[(turn+1) % len(players)].turnOrder
+        self.currentPlayer = players[(turn-2) % len(players)].turnOrder
 
 class Action:
     """

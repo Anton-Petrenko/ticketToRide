@@ -1,0 +1,37 @@
+TICKET TO RIDE
+0. Kevin
+1. Larry
+2. David
+--------------------
+
+TURN -2
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 0 ['YELLOW', 'RED', 'YELLOW', 'BLUE'], destinations [], trains 45, points 0
+   dealt [['KANSAS CITY', '5', 'HOUSTON', 15], ['SEATTLE', '9', 'LOS ANGELES', 29], ['DALLAS', '11', 'NEW YORK', 9]]
+   keeps [['DALLAS', '11', 'NEW YORK', 9], ['KANSAS CITY', '5', 'HOUSTON', 15]]
+
+TURN -1
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 1 ['WILD', 'PINK', 'GREEN', 'RED'], destinations [], trains 45, points 0
+   dealt [['SAULT ST. MARIE', '9', 'OKLAHOMA CITY', 28], ['WINNIPEG', '11', 'LITTLE ROCK', 13], ['SAN FRANCISCO', '17', 'ATLANTA', 14]]
+   keeps [['SAN FRANCISCO', '17', 'ATLANTA', 14], ['WINNIPEG', '11', 'LITTLE ROCK', 13], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY', 28]]
+
+TURN 0
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 2 ['RED', 'BLACK', 'WILD', 'BLUE'], destinations [], trains 45, points 0
+   dealt [['DULUTH', '8', 'HOUSTON', 1], ['LOS ANGELES', '21', 'NEW YORK', 0], ['LOS ANGELES', '16', 'CHICAGO', 16]]
+   keeps [['LOS ANGELES', '21', 'NEW YORK', 0], ['DULUTH', '8', 'HOUSTON', 1]]
+
+TURN 1
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 0 ['YELLOW', 'RED', 'YELLOW', 'BLUE'], destinations [['DALLAS', '11', 'NEW YORK', 9], ['KANSAS CITY', '5', 'HOUSTON', 15]], trains 45, points -16
+   placed ('DENVER', 'SANTA FE', 0, {'weight': 2, 'color': 'GRAY', 'owner': '', 'index': 31}) using ['YELLOW', 'YELLOW']
+
+TURN 2
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 1 ['WILD', 'PINK', 'GREEN', 'RED'], destinations [['SAN FRANCISCO', '17', 'ATLANTA', 14], ['WINNIPEG', '11', 'LITTLE ROCK', 13], ['SAULT ST. MARIE', '9', 'OKLAHOMA CITY', 28]], trains 45, points -37
+   placed ('RALEIGH', 'CHARLESTON', 0, {'weight': 2, 'color': 'GRAY', 'owner': '', 'index': 88}) using ['WILD', 'PINK']
+
+TURN 3
+CARDS UP ['BLACK', 'BLUE', 'BLACK', 'ORANGE', 'YELLOW']
+ PLAYER 2 ['RED', 'BLACK', 'WILD', 'BLUE'], destinations [['LOS ANGELES', '21', 'NEW YORK', 0], ['DULUTH', '8', 'HOUSTON', 1]], trains 45, points -29

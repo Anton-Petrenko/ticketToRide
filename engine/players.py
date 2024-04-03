@@ -13,6 +13,7 @@ class Agent:
         self.points = 0
         self.color = str
         self.turnOrder = int
+        self.colorCounting: list[int] = []
 
     def firstTurn(self, deal: list[list[str]]) -> list[int]:
         """

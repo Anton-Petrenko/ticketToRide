@@ -1,3 +1,4 @@
+import random
 from engine.build import State
 from engine.data import listColors
 from engine.players import Agent
@@ -5,11 +6,7 @@ from engine.players import Agent
 class Network:
     """The actual network object that powers the AI agent"""
     def __init__(self, map: str) -> None:
-        self.map = map
-    
-    def formatInput(self, destAvail, destHand, destPerPlayer, routesTaken, colorsAvail, colorsPerPlayer) -> list[int]:
-        """Format game state data into input for the network - input type unknown for now"""
-        
+        self.map = map     
     
     def play(self, state: State):
         """
@@ -72,4 +69,6 @@ class Network:
         while len(colorsCount) != 39:
             colorsCount.append(0)
 
-        quit()
+        # network.output(long vector)
+
+        return (random.randint(0,3), [random.random() for i in range(9)], [random.random() for i in range(30)], [random.random() for i in range(100)], random.random())

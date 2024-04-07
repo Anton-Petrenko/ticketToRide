@@ -163,14 +163,14 @@ class MonteCarloSearch:
         return child
     
     def evaluateNode(self, node: Node, network: Network) -> int:
-        a, Dc, Dd, Dr = network.play(node.state)
+        return network.play(node.state) 
 
     def backprop(self):
         pass
 
     def search(self):
 
-        self.evaluateNode(self.root, self.network)
+        a, Dc, Dd, Dr, w = self.evaluateNode(self.root, self.network)
         quit()
 
         for _ in range(self.simulations):

@@ -2,6 +2,7 @@ import re
 
 pointsByLength = {1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15}
 colors = {0: 'red', 1: 'blue', 2: 'orange', 3: 'green'}
+indexByColor = {'PINK': 0, 'WHITE': 1, 'BLUE': 2, 'YELLOW': 3, 'ORANGE': 4, 'BLACK': 5, 'RED': 6, 'GREEN': 7, 'WILD': 8}
 
 def getPaths(map: str) -> list[list[str]]:
     """
@@ -35,3 +36,9 @@ def listColors() -> list[str]:
 
 def listDestTakes() -> list[list[int]]:
     return [[0], [1], [2], [0, 1], [0, 2], [1, 2], [0, 1, 2]]
+
+def product(*args: int) -> float:
+    p = 1
+    for arg in args:
+        p *= arg
+    return p

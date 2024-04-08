@@ -69,6 +69,6 @@ class Network:
         while len(colorsCount) != 39:
             colorsCount.append(0)
 
-        # network.output(long vector)
+        # network.output(param: the long vector)
 
-        return (random.randint(0,3), [random.random() for i in range(9)], [random.random() for i in range(30)], [random.random() for i in range(100)], random.random())
+        return ([random.random() for i in range(4)], [random.random() for i in range(9)], [random.random() for i in range(30)], [random.random() for i in range(100)], random.random())

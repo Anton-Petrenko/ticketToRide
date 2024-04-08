@@ -39,12 +39,14 @@ class Game:
         self.movePerforming = None
         """Denotes which move (by index) has changed the game state but not whose turn it is. None if turn is new"""
         self.board = nx.MultiGraph
+        self.destinationDeal = list[list]
         self.faceUpCards = list[str]
         self.trainCarDeck = deque[str]
         self.destinationCards = list[str]
         self.validGameMoves = [0, 1, 2, 3]
         self.destinationsDeck = deque[list[str]]
         self.players = players if ((2 <= len(players) <= 4)) else None
+        self.wildFromFaceUp = False
         if self.players == None:
             raise ValueError("There must be between 2-4 players.")
         random.shuffle(self.players)
@@ -341,7 +343,10 @@ class Game:
         * Responsible for updating the game state after each player's turn
         """
         
-        # Debug - currently testing only destination card pickups for MCTS
+        self.wildFromFaceUp = False
+        self.destinationDeal = None
+
+        # Debug - stopping game at random point
         if random.randint(0, 25) == 3:
             self.gameOver = True
             return
@@ -359,6 +364,7 @@ class Game:
         else:
             if i[0] == 3:
                 draw = [self.destinationsDeck.pop(), self.destinationsDeck.pop(), self.destinationsDeck.pop()]
+                self.destinationDeal = draw
                 if len(self.destinationsDeck) < 3:
                     self.validGameMoves.remove(3)
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i, destCardDeal=draw)
@@ -380,6 +386,8 @@ class Game:
         # Agent wants to draw from the face up pile
         elif action == 1:
             anotherMove = self.drawFaceUp(player, cardDistribution, requery)
+            if anotherMove == False:
+                self.wildFromFaceUp = True
             if anotherMove and requery == False:
                 # Requery the agent with valid moves 1 and 2 available - drawing from face up or down cards.
                 self.movePerforming = 1
@@ -551,8 +559,9 @@ class State:
     """
     A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
     """
-    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int) -> None:
+    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], game: Game) -> None:
         self.map = map
+        self.game = game
         self.turn = turn
         self.players = players
         self.board = deepcopy(board)
@@ -561,6 +570,8 @@ class State:
         self.trainCarDeck = deepcopy(trainCarDeck)
         self.destinationDeck = deepcopy(destinationDeck)
         self.currentPlayer = players[(turn-2) % len(players)].turnOrder
+        self.wildFromFaceUp = wildFromFaceUp
+        self.destinationDeal = destinationDeal
 
 class Action:
     """
@@ -582,13 +593,19 @@ class Action:
         
         elif self.action == 1:
 
-            self.colorPicked = colorPicked
+            self.colorPicked: list[str] = colorPicked
             """Action 1 - color to pick up"""
         
         elif self.action == 3:
 
             self.destinationsPicked = destinationsPicked
             """Action 3 - destination cards picked up by index"""
+        
+        else:
+            self.routeToPlace = routeToPlace
+            self.colorsUsed = colorsUsed
+            self.colorPicked = colorPicked
+            self.destinationsPicked = destinationsPicked
 
 class Input:
     """

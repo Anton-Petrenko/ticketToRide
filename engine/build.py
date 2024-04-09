@@ -14,9 +14,61 @@ TODO:
 1. Longest route bonus is not given out at the end.
 """
 
+class State:
+    """
+    A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
+    """
+    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], validMoves: list[int]) -> None:
+        self.map = map
+        self.turn = turn
+        self.players = players
+        self.board = deepcopy(board)
+        self.followUpFromMove = followUpFromMove
+        self.faceUpCards = deepcopy(faceUpCards)
+        self.trainCarDeck = deepcopy(trainCarDeck)
+        self.destinationDeck = deepcopy(destinationDeck)
+        self.currentPlayer = players[(turn-2) % len(players)].turnOrder
+        self.wildFromFaceUp = wildFromFaceUp
+        self.destinationDeal = deepcopy(destinationDeal)
+        self.validMoves = validMoves
+
+class Action:
+    """
+    A class to denote actions for MCTS
+
+    Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)
+    """
+    def __init__(self, action: int, routeToPlace=None, colorsUsed=None, colorPicked=None, destinationsPicked=None) -> None:
+
+        self.action = action
+        """Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)"""
+
+        if self.action == 0:
+
+            self.routeToPlace = routeToPlace
+            """Action 0 - route to place"""
+            self.colorsUsed = colorsUsed
+            """Action 0 - colors used to place the hand where leftmost is the most frequent"""
+        
+        elif self.action == 1:
+
+            self.colorPicked: list[str] = colorPicked
+            """Action 1 - color to pick up"""
+        
+        elif self.action == 3:
+
+            self.destinationsPicked = destinationsPicked
+            """Action 3 - destination cards picked up by index"""
+        
+        else:
+            self.routeToPlace = routeToPlace
+            self.colorsUsed = colorsUsed
+            self.colorPicked = colorPicked
+            self.destinationsPicked = destinationsPicked
+
 class Game:
 
-    def __init__(self, map: str, players: list[Agent], logs: bool, debug=False, drawGame=False) -> None:
+    def __init__(self, map: str, players: list[Agent], logs: bool, debug=False, drawGame=False, state: State = None) -> None:
         """
         The Ticket to Ride game engine in python.
 
@@ -29,38 +81,60 @@ class Game:
         Debug = a boolean to enable more descriptive game logs
 
         drawGame = a boolean to see a loose representation of the ending game map
+
+        state = if a state of a game is given, this will initialize a frozen Game object in which moves can manually be performed.
         """
-        self.logs = []
-        self.debug = debug
-        self.doLogs = logs
-        self.mapName = map
-        self.gameOver = False
-        self.drawGame = drawGame
-        self.movePerforming = None
-        """Denotes which move (by index) has changed the game state but not whose turn it is. None if turn is new"""
-        self.board = nx.MultiGraph
-        self.destinationDeal = list[list]
-        self.faceUpCards = list[str]
-        self.trainCarDeck = deque[str]
-        self.destinationCards = list[str]
-        self.validGameMoves = [0, 1, 2, 3]
-        self.destinationsDeck = deque[list[str]]
-        self.players = players if ((2 <= len(players) <= 4)) else None
-        self.wildFromFaceUp = False
-        if self.players == None:
-            raise ValueError("There must be between 2-4 players.")
-        random.shuffle(self.players)
-        self.turn = 1 - len(players)
-        self.actionMap = dict[int, list]
-        self.build()
-        self.init()
-        self.getActionMap()
-        self.play()
-        self.endGame()
-        if self.doLogs == True:
-            self.log()
-        if self.drawGame:
-            pyplot.show()
+        if state != None:
+            self.setGame(state)
+        else:
+            self.logs = []
+            self.debug = debug
+            self.doLogs = logs
+            self.mapName = map
+            self.gameOver = False
+            self.drawGame = drawGame
+            self.validGameMoves = [0, 1, 2, 3]
+            self.players = players if ((2 <= len(players) <= 4)) else None
+            self.destinationsDeck: deque[list[str]]
+            self.destinationCards: list[str]
+            self.trainCarDeck: deque[str]
+            self.faceUpCards: list[str]
+            self.destinationDeal: list[list]
+            self.board: nx.MultiGraph
+            self.wildFromFaceUp = False
+            self.movePerforming = None
+            self.colorPicked: str
+            """Denotes which move (by index) has changed the game state but not whose turn it is. None if turn is new"""
+            if self.players == None:
+                raise ValueError("There must be between 2-4 players.")
+            random.shuffle(self.players)
+            self.turn = 1 - len(players)
+            self.actionMap = dict[int, list]
+            self.build()
+            self.init()
+            self.getActionMap()
+            self.play()
+            self.endGame()
+            if self.doLogs == True:
+                self.log()
+            if self.drawGame:
+                pyplot.show()
+    
+    def setGame(self, state: State) -> None:
+        """
+        Builds a frozen game object from a given state where moves can be manually performed.
+        """
+        self.movePerforming = state.followUpFromMove
+        self.board = deepcopy(state.board)
+        self.destinationDeal = deepcopy(state.destinationDeal)
+        self.faceUpCards = deepcopy(state.faceUpCards)
+        self.trainCarDeck = deepcopy(state.trainCarDeck)
+        self.destinationsDeck = deepcopy(state.destinationDeck)
+        self.wildFromFaceUp = state.wildFromFaceUp
+        self.turn = state.turn
+        self.players = deepcopy(state.players)
+        self.validGameMoves = state.validMoves
+        self.mapName = state.map
 
     def build(self) -> None:
         """
@@ -283,6 +357,7 @@ class Game:
                 if self.doLogs:
                     self.logs = self.logs + [f"   picked up {color} from face up deck.\n"]
 
+                self.colorPicked = color
                 break
 
         if isWild:
@@ -350,6 +425,8 @@ class Game:
         if random.randint(0, 25) == 3:
             self.gameOver = True
             return
+        
+        self.colorPicked = None
         
         if i == []:
             self.gameOver = True
@@ -430,7 +507,20 @@ class Game:
         elif action == 3 and requery == False:
             self.movePerforming = 3
             self.performAction(player, i=[3], requery=True)
-            
+    
+    def performActionFrozen(self, player: Agent, action: Action):
+        """
+        The action performer for frozen game states. This assumes the action given is valid and achievable.
+        """
+
+        # Wants to place specific route
+        if action.action == 0:
+            print(player.hand_trainCards)
+            print(action.action, action.routeToPlace, action.colorsUsed)
+            self.board.get_edge_data(action.routeToPlace[0], action.routeToPlace[1])[0]['owner'] = player.turnOrder # player takes ownership of route
+            for color in action.colorsUsed:
+                player.hand_trainCards.remove(color)
+
     def play(self):
         """
         Plays the whole game out once.
@@ -554,58 +644,6 @@ class Game:
     def log(self):
         logs = open("log.txt", "w")
         logs.writelines(self.logs)
-
-class State:
-    """
-    A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
-    """
-    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], game: Game) -> None:
-        self.map = map
-        self.game = game
-        self.turn = turn
-        self.players = players
-        self.board = deepcopy(board)
-        self.followUpFromMove = followUpFromMove
-        self.faceUpCards = deepcopy(faceUpCards)
-        self.trainCarDeck = deepcopy(trainCarDeck)
-        self.destinationDeck = deepcopy(destinationDeck)
-        self.currentPlayer = players[(turn-2) % len(players)].turnOrder
-        self.wildFromFaceUp = wildFromFaceUp
-        self.destinationDeal = destinationDeal
-
-class Action:
-    """
-    A class to denote actions for MCTS
-
-    Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)
-    """
-    def __init__(self, action: int, routeToPlace=None, colorsUsed=None, colorPicked=None, destinationsPicked=None) -> None:
-
-        self.action = action
-        """Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)"""
-
-        if self.action == 0:
-
-            self.routeToPlace = routeToPlace
-            """Action 0 - route to place"""
-            self.colorsUsed = colorsUsed
-            """Action 0 - colors used to place the hand where leftmost is the most frequent"""
-        
-        elif self.action == 1:
-
-            self.colorPicked: list[str] = colorPicked
-            """Action 1 - color to pick up"""
-        
-        elif self.action == 3:
-
-            self.destinationsPicked = destinationsPicked
-            """Action 3 - destination cards picked up by index"""
-        
-        else:
-            self.routeToPlace = routeToPlace
-            self.colorsUsed = colorsUsed
-            self.colorPicked = colorPicked
-            self.destinationsPicked = destinationsPicked
 
 class Input:
     """

@@ -10,7 +10,7 @@ class Node:
     
     Game state - of custom type State (build.py)
     """
-    def __init__(self, state: State, priorProb=None, parent=None) -> None:
+    def __init__(self, state: State, priorProb=None, parent=None, fromAction=None, color=None) -> None:
         self.state = state
         self.visitCount = 0             # N(s,a)
         self.priorProb = priorProb      # P(s,a)
@@ -19,7 +19,7 @@ class Node:
         """The parent of the node - of type Node"""
         self.children: dict[Action: Node] = {}          
         """The children of the node - of type [ Node, Node, ... ]"""
-        self.fromAction: Action = Action(None)
+        self.fromAction: Action = Action(None) if fromAction == None else Action(fromAction, colorPicked=color)
         """Each node that is a child stores the action (from its parent) that led to it - of custom type Action"""
 
     def getMeanWinningProb(self) -> float:
@@ -51,68 +51,69 @@ class MonteCarloSearch:
         actionList: list[Action] = []
 
         # Check for 0 - Placing trains
-        for route in state.board.edges(data=True):
+        if previousAction == None:
+            for route in state.board.edges(data=True):
 
-            weight = route[2]['weight']
-            # Criteria for ineligible:
-            # 1. Taken
-            # 2. Not enough cards
-            if route[2]['owner'] != '':
-                continue
-
-            # Can this be completed at all (either color or color + wilds)?
-            # If it can, every combination of cards must be returned. Caveat: all of one color must be used - the engine is not set up for splitting hands. For example, if a player holds 4 blues and 2 wilds and the route calls for 3 blues. There are two combinations possible - 3BLUE and 2WILD, 1BLUE. The engine will never perform a 2BLUE, 1WILD due to the nature of the "desire" architecture for denoting moves.
-
-            # If the route is a color (not gray)
-            if route[2]['color'] != 'GRAY':
-
-                routeColor = route[2]['color']
-                numColor = nextPlayer.hand_trainCards.count(routeColor)
-                numWilds = nextPlayer.hand_trainCards.count('WILD')
-
-                if numColor == 0:
+                weight = route[2]['weight']
+                # Criteria for ineligible:
+                # 1. Taken
+                # 2. Not enough cards
+                if route[2]['owner'] != '':
                     continue
-                elif numColor < weight:
-                    # Less than needed - see if wilds can fill it up
-                    if numWilds > 0:
-                        if numWilds + numColor == weight:
-                            actionList.append(Action(0, route, [routeColor, 'WILD']))
-                        elif numWilds + numColor > weight:
-                            actionList.append(Action(0, route, [routeColor, 'WILD']))
-                            if numWilds < weight:
-                                actionList.append(Action(0, route, ['WILD', routeColor]))
-                elif numColor >= weight:
-                    actionList.append(Action(0, route, [routeColor]))
-                    if 0 < numWilds < weight:
-                        actionList.append(Action(0, route, ['WILD', routeColor]))
-            
-            # If the route is gray
-            else:
-                numWilds = nextPlayer.hand_trainCards.count('WILD')
-                for color in listColors():
-                    # Check if it can be completed with just that color (doesn not include WILD)
-                    numColor = nextPlayer.hand_trainCards.count(color)
-                    if numColor == 0 or color == 'WILD':
-                        # None of color
+
+                # Can this be completed at all (either color or color + wilds)?
+                # If it can, every combination of cards must be returned. Caveat: all of one color must be used - the engine is not set up for splitting hands. For example, if a player holds 4 blues and 2 wilds and the route calls for 3 blues. There are two combinations possible - 3BLUE and 2WILD, 1BLUE. The engine will never perform a 2BLUE, 1WILD due to the nature of the "desire" architecture for denoting moves.
+
+                # If the route is a color (not gray)
+                if route[2]['color'] != 'GRAY':
+
+                    routeColor = route[2]['color']
+                    numColor = nextPlayer.hand_trainCards.count(routeColor)
+                    numWilds = nextPlayer.hand_trainCards.count('WILD')
+
+                    if numColor == 0:
                         continue
                     elif numColor < weight:
                         # Less than needed - see if wilds can fill it up
                         if numWilds > 0:
                             if numWilds + numColor == weight:
-                                actionList.append(Action(0, route, [color, 'WILD']))
+                                actionList.append(Action(0, route, [routeColor, 'WILD']))
                             elif numWilds + numColor > weight:
-                                actionList.append(Action(0, route, [color, 'WILD']))
+                                actionList.append(Action(0, route, [routeColor, 'WILD']))
                                 if numWilds < weight:
-                                    actionList.append(Action(0, route, ['WILD', color]))
+                                    actionList.append(Action(0, route, ['WILD', routeColor]))
                     elif numColor >= weight:
-                        # More than needed or equal
-                        actionList.append(Action(0, route, [color]))
-                        # Wildcard cases
-                        if numWilds < weight and numWilds > 0:
-                            actionList.append(Action(0, route, ['WILD', color]))
-                if numWilds >= weight:
-                    actionList.append(Action(0, route, ['WILD'])) 
-        
+                        actionList.append(Action(0, route, [routeColor]))
+                        if 0 < numWilds < weight:
+                            actionList.append(Action(0, route, ['WILD', routeColor]))
+                
+                # If the route is gray
+                else:
+                    numWilds = nextPlayer.hand_trainCards.count('WILD')
+                    for color in listColors():
+                        # Check if it can be completed with just that color (doesn not include WILD)
+                        numColor = nextPlayer.hand_trainCards.count(color)
+                        if numColor == 0 or color == 'WILD':
+                            # None of color
+                            continue
+                        elif numColor < weight:
+                            # Less than needed - see if wilds can fill it up
+                            if numWilds > 0:
+                                if numWilds + numColor == weight:
+                                    actionList.append(Action(0, route, [color, 'WILD']))
+                                elif numWilds + numColor > weight:
+                                    actionList.append(Action(0, route, [color, 'WILD']))
+                                    if numWilds < weight:
+                                        actionList.append(Action(0, route, ['WILD', color]))
+                        elif numColor >= weight:
+                            # More than needed or equal
+                            actionList.append(Action(0, route, [color]))
+                            # Wildcard cases
+                            if numWilds < weight and numWilds > 0:
+                                actionList.append(Action(0, route, ['WILD', color]))
+                    if numWilds >= weight:
+                        actionList.append(Action(0, route, ['WILD'])) 
+            
         # Check for 1 & 2 - Draw Face Up or from Deck
         if previousAction == 1:
             # If we are drawing the second card
@@ -169,7 +170,10 @@ class MonteCarloSearch:
         a, Dc, Dd, Dr, w_p = network.play(node.state) # Get neural network forward pass evaluation
         policy = {}
         policySum = 0
-        for action in self.getValidMoves(node.state, node.fromAction.action, node.fromAction.colorPicked == ['WILD']):
+        pickedWild = False
+        if node.fromAction.colorPicked != None:
+            pickedWild = True if node.fromAction.colorPicked == ['WILD'] else False
+        for action in self.getValidMoves(node.state, node.fromAction.action, pickedWild):
             value = self.getValue(action, a, Dc, Dd, Dr, node.state.destinationDeal)
             policy[action] = value**2
             policySum += value
@@ -179,7 +183,9 @@ class MonteCarloSearch:
     
     def newState(self, state: State, action: Action) -> State:
         """Takes a state and an action, and returns a new, deepcopied state which has carried out the action"""
-        pass
+        newGame = Game(state.map, state.players, False, False, False, state)
+        newGame.performActionFrozen(state.players[state.currentPlayer], action)
+        return State(newGame.board, newGame.faceUpCards, newGame.trainCarDeck, newGame.destinationsDeck, newGame.players, newGame.turn, newGame.mapName, newGame.movePerforming, newGame.wildFromFaceUp, newGame.destinationDeal, newGame.validGameMoves)
 
     def getValue(self, action: Action, a: list[float], Dc: list[float], Dd: list[float], Dr: list[float], destDeal: list[list]) -> float:
         """Takes the ouput of the network and a valid action to take and returns a float representing how 'confident' the network is in making that move. The higher the float the higher the confidence."""
@@ -209,6 +215,9 @@ class MonteCarloSearch:
 
     def search(self):
 
+        print(f"Stopped at player {self.root.state.players[self.root.state.currentPlayer].turnOrder} doing move {self.root.fromAction.action}")
+        if self.root.fromAction.action == 1:
+            print(self.root.fromAction.colorPicked)
         self.evaluateNode(self.root, self.network)
         quit()
 

@@ -7,18 +7,19 @@ from matplotlib import pyplot
 from collections import deque
 from engine.players import Agent
 # from models.mcts import MonteCarloSearch, Node
-from engine.data import getPaths, getDestinationCards, listColors, pointsByLength, colors
+from engine.data import getPaths, getDestinationCards, listColors, pointsByLength, colors, getPathsAM
 
 """
 TODO:
 1. Longest route bonus is not given out at the end.
+2. clearing of face up cards in specific cirumstances has not been implemented yet. (ex. 3 wilds on the board clears the face up deck)
 """
 
 class State:
     """
     A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
     """
-    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], validMoves: list[int]) -> None:
+    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], validMoves: list[int], actionMap: list) -> None:
         self.map = map
         self.turn = turn
         self.players = players
@@ -31,6 +32,7 @@ class State:
         self.wildFromFaceUp = wildFromFaceUp
         self.destinationDeal = deepcopy(destinationDeal)
         self.validMoves = validMoves
+        self.actionMap = actionMap
 
 class Action:
     """
@@ -65,6 +67,19 @@ class Action:
             self.colorsUsed = colorsUsed
             self.colorPicked = colorPicked
             self.destinationsPicked = destinationsPicked
+    
+    def __str__(self) -> str:
+        
+        if self.action == 0:
+            return f"placing route {self.routeToPlace} using {self.colorsUsed}"
+        elif self.action == 1:
+            return f"picking up {self.colorPicked} from the face up deck"
+        elif self.action == 2:
+            return f"picking up from the face down deck"
+        elif self.action == 3:
+            return f"picking up destinations... {self.destinationsPicked}"
+        else:
+            return f"action is {self.action}"
 
 class Game:
 
@@ -99,7 +114,7 @@ class Game:
             self.destinationCards: list[str]
             self.trainCarDeck: deque[str]
             self.faceUpCards: list[str]
-            self.destinationDeal: list[list]
+            self.destinationDeal: list[list] = None
             self.board: nx.MultiGraph
             self.wildFromFaceUp = False
             self.movePerforming = None
@@ -111,30 +126,14 @@ class Game:
             self.turn = 1 - len(players)
             self.actionMap = dict[int, list]
             self.build()
-            self.init()
             self.getActionMap()
+            self.init()
             self.play()
             self.endGame()
             if self.doLogs == True:
                 self.log()
             if self.drawGame:
                 pyplot.show()
-    
-    def setGame(self, state: State) -> None:
-        """
-        Builds a frozen game object from a given state where moves can be manually performed.
-        """
-        self.movePerforming = state.followUpFromMove
-        self.board = deepcopy(state.board)
-        self.destinationDeal = deepcopy(state.destinationDeal)
-        self.faceUpCards = deepcopy(state.faceUpCards)
-        self.trainCarDeck = deepcopy(state.trainCarDeck)
-        self.destinationsDeck = deepcopy(state.destinationDeck)
-        self.wildFromFaceUp = state.wildFromFaceUp
-        self.turn = state.turn
-        self.players = deepcopy(state.players)
-        self.validGameMoves = state.validMoves
-        self.mapName = state.map
 
     def build(self) -> None:
         """
@@ -194,8 +193,29 @@ class Game:
         2 - Draw (Face Down) (2, deque[str])
         3 - Draw (Destination Cards) (3, deque[list[str]])
         """
-        self.actionMap = { 0: list(self.board.edges.data(keys=True)), 1: self.faceUpCards, 2: self.trainCarDeck, 3: self.destinationCards }
+        self.actionMap = { 0: list(getPathsAM(self.mapName)), 1: self.faceUpCards, 2: self.trainCarDeck, 3: self.destinationCards }
     
+    def setGame(self, state: State) -> None:
+        """
+        Builds a frozen game object from a given state where moves can be manually performed.
+        """
+        self.movePerforming = state.followUpFromMove
+        self.board = deepcopy(state.board)
+        self.destinationDeal = deepcopy(state.destinationDeal)
+        self.faceUpCards = deepcopy(state.faceUpCards)
+        self.trainCarDeck = deepcopy(state.trainCarDeck)
+        self.destinationsDeck = deepcopy(state.destinationDeck)
+        self.wildFromFaceUp = state.wildFromFaceUp
+        self.turn = state.turn
+        self.players = deepcopy(state.players)
+        self.validGameMoves = state.validMoves
+        self.mapName = state.map
+        self.destinationCards = getDestinationCards(self.mapName)
+        self.actionMap = state.actionMap
+        self.debug = False
+        self.doLogs = False
+        self.colorPicked: str = None
+
     def placeTrains(self, player: Agent, actionDistribution: list[int], cardDistribution: list[str]) -> None:
         """
         Takes the distributions for placing trains and performs the move for the game. Uses the player object, actionDistribution, and cardDistribution.
@@ -250,7 +270,8 @@ class Game:
 
                     if wildFound == False and color == 'WILD':
                         wildFound = True
-                        continue
+                        if len(cardDistribution) != 1:
+                            continue
                     playerColorNum = player.hand_trainCards.count(color)
 
                     if wildFound:
@@ -273,7 +294,7 @@ class Game:
                             canAfford = True
                             break
             else:
-                if cardDistribution.index('WILD') < cardDistribution.index(route[3].get('color')):
+                if 'WILD' in cardDistribution and cardDistribution.index('WILD') < cardDistribution.index(route[3].get('color')):
                     if player.hand_trainCards.count(route[3].get('color')) >= route[3].get('weight'):
                         cards = list(repeat(route[3].get('color'), route[3].get('weight')))
                         canAfford = True
@@ -328,8 +349,6 @@ class Game:
         Takes the distributions for drawing from the face up cards and performs one draw of the face up card, updating the game to reflect it.
 
         Returns true if the player can make another move (did not pick up a wild), returns false if turn is over.
-
-        TODO: clearing of face up cards in specific cirumstances has not been implemented yet. (ex. 3 wilds on the board clears the face up deck)
         """
         # 1. Find the next color to pick up
         # 2. Update player hand
@@ -419,7 +438,6 @@ class Game:
         """
         
         self.wildFromFaceUp = False
-        self.destinationDeal = None
 
         # Debug - stopping game at random point
         if random.randint(0, 25) == 3:
@@ -447,6 +465,7 @@ class Game:
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i, destCardDeal=draw)
                 self.drawDestinationCards(player, actionDistribution, draw)
                 self.movePerforming = None
+                self.destinationDeal = None
             else:
                 action, actionDistribution, cardDistribution = player.turn(self.board, self.faceUpCards, [agent.points for agent in self.players], [len(agent.hand_trainCards) for agent in self.players], [len(agent.hand_destinationCards) for agent in self.players], self.actionMap, i)           
     
@@ -479,6 +498,7 @@ class Game:
         # Agent wants to draw from the face down pile
         elif action == 2:
             color = self.trainCarDeck.pop()
+            self.colorPicked = color
             player.hand_trainCards.append(color)
             # Card counting
             colorIndexes = listColors()
@@ -506,6 +526,7 @@ class Game:
         # Agent wants to draw new destination cards
         elif action == 3 and requery == False:
             self.movePerforming = 3
+            self.destinationDeal = list(reversed(list(self.destinationsDeck)[-3:]))
             self.performAction(player, i=[3], requery=True)
     
     def performActionFrozen(self, player: Agent, action: Action):
@@ -515,11 +536,30 @@ class Game:
 
         # Wants to place specific route
         if action.action == 0:
-            print(player.hand_trainCards)
-            print(action.action, action.routeToPlace, action.colorsUsed)
-            self.board.get_edge_data(action.routeToPlace[0], action.routeToPlace[1])[0]['owner'] = player.turnOrder # player takes ownership of route
-            for color in action.colorsUsed:
-                player.hand_trainCards.remove(color)
+            self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
+            self.turn += 1
+        elif action.action == 1:
+            self.drawFaceUp(player, action.colorPicked, requery=False)
+        elif action.action == 2:
+            color = self.trainCarDeck.pop()
+            self.colorPicked = color
+            player.hand_trainCards.append(color)
+            # Card counting
+            colorIndexes = listColors()
+            for agent in self.players:
+                if agent.turnOrder == player.turnOrder:
+                    agent.colorCounting[player.turnOrder][colorIndexes.index(color)] += 1
+                else:
+                    agent.colorCounting[player.turnOrder][9] += 1
+        elif action.action == 3:
+            if action.destinationsPicked == None:
+                self.destinationDeal = list(reversed(list(self.destinationsDeck)[-3:]))
+            else:
+                self.drawDestinationCards(player, [self.destinationDeal[i][3] for i in action.destinationsPicked], self.destinationDeal)
+                self.movePerforming = None
+                self.destinationDeal = None
+
+
 
     def play(self):
         """

@@ -17,6 +17,20 @@ def getPaths(map: str) -> list[list[str]]:
         i += 1
     return paths
 
+def getPathsAM(map: str) -> list[list[str]]:
+    """
+    Takes a map name and returns a list of paths between cities where each item is an array [city1, length, color, city2] as strings including the edge data (for action map)
+    """
+    lines = open(f"engine/{map}_paths.txt").readlines()
+    paths = []
+    i = 0
+    for path in lines:
+        data = re.search('(^\D+)(\d)\W+(\w+)\W+(.+)', path)
+        weight = int(data.group(2).strip())
+        paths.append([data.group(1).strip(), data.group(4).strip(), 0, {'weight': weight, 'color': data.group(3).strip(), 'owner': '', 'index': i}])
+        i += 1
+    return paths
+
 def getDestinationCards(map: str) -> list[list[str]]:
     """
     Takes a map name and returns a list of paths between cities where each item is an array [city1, points, city2] as strings

@@ -188,7 +188,7 @@ class MonteCarloSearch:
         return w_p
     
     def newState(self, state: State, action: Action) -> State:
-        """Takes a state and an action, and returns a new, deepcopied state which has carried out the action"""
+        """Takes a state and an action, and returns a new, deepcopied state which has carried out the action."""
         newGame = Game(state.map, state.players, False, False, False, state)
         newGame.performActionFrozen(newGame.players[state.currentPlayer], action)
         newState = State(newGame.board, newGame.faceUpCards, newGame.trainCarDeck, newGame.destinationsDeck, newGame.players, newGame.turn, newGame.mapName, newGame.movePerforming, newGame.wildFromFaceUp, newGame.destinationDeal, newGame.validGameMoves, newGame.actionMap)

@@ -1,5 +1,5 @@
 import time
-from engine.build import Game, State
+from engine.build import Action, Game, State
 from engine.players import Agent
 from models.mcts import MonteCarloSearch, Node
 
@@ -57,6 +57,8 @@ def play(map: str, players: list[Agent], logs: bool, debug: bool, runs: int, dra
     if state.followUpFromMove == 1 or state.followUpFromMove == 2:
         color = game.colorPicked
         node = Node(state, fromAction=state.followUpFromMove, color=[color])
+    elif state.followUpFromMove == 3:
+        node = Node(state, fromAction=state.followUpFromMove, destDeal=state.destinationDeal)
     else:
         node = Node(state, fromAction=state.followUpFromMove)
 

@@ -28,7 +28,7 @@ class State:
         self.faceUpCards = deepcopy(faceUpCards)
         self.trainCarDeck = deepcopy(trainCarDeck)
         self.destinationDeck = deepcopy(destinationDeck)
-        self.currentPlayer = players[(turn-2) % len(players)].turnOrder
+        self.currentPlayer = players[(turn-1) % len(players)].turnOrder
         self.wildFromFaceUp = wildFromFaceUp
         self.destinationDeal = deepcopy(destinationDeal)
         self.validMoves = validMoves
@@ -77,7 +77,10 @@ class Action:
         elif self.action == 2:
             return f"picking up from the face down deck"
         elif self.action == 3:
-            return f"picking up destinations... {self.destinationsPicked}"
+            if self.destinationsPicked == None:
+                return f"picking up destinations... board not showing"
+            else:
+                return f"picking up destinations... board showing {self.destinationsPicked}"
         else:
             return f"action is {self.action}"
 
@@ -441,6 +444,7 @@ class Game:
 
         # Debug - stopping game at random point
         if random.randint(0, 25) == 3:
+            self.turn -= 1
             self.gameOver = True
             return
         
@@ -539,8 +543,18 @@ class Game:
             self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
             self.turn += 1
         elif action.action == 1:
+            if self.movePerforming != None:
+                self.turn += 1
+                self.movePerforming = None
+            else:
+                self.movePerforming = 1
             self.drawFaceUp(player, action.colorPicked, requery=False)
         elif action.action == 2:
+            if self.movePerforming != None:
+                self.turn += 1
+                self.movePerforming = None
+            else:
+                self.movePerforming = 2
             color = self.trainCarDeck.pop()
             self.colorPicked = color
             player.hand_trainCards.append(color)
@@ -554,11 +568,15 @@ class Game:
         elif action.action == 3:
             if action.destinationsPicked == None:
                 self.destinationDeal = list(reversed(list(self.destinationsDeck)[-3:]))
+                self.movePerforming = 3
             else:
-                self.drawDestinationCards(player, [self.destinationDeal[i][3] for i in action.destinationsPicked], self.destinationDeal)
+                drawThese = []
+                for destIndex in action.destinationsPicked:
+                    drawThese.append(self.destinationDeal[destIndex][3])
+                self.drawDestinationCards(player, drawThese, self.destinationDeal)
                 self.movePerforming = None
                 self.destinationDeal = None
-
+                self.turn += 1
 
 
     def play(self):

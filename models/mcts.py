@@ -1,4 +1,6 @@
 import math
+
+import numpy
 from engine.build import State, Action, Game, Agent
 from engine.data import listColors, listDestTakes, product, indexByColor
 from models.network import Network
@@ -34,21 +36,26 @@ class Node:
 class MonteCarloSearch:
     """The Monte Carlo class for the Ticket to Ride Engine, using a state, it executes the desired number of simulations on that state"""
 
-    def __init__(self, root: Node, simulations=2, pb_c_base=19652, pb_c_init=1.25) -> None:
+    def __init__(self, root: Node, simulations=10, pb_c_base=19652, pb_c_init=1.25) -> None:
         self.root: Node = root
         self.network: Network = Network(root.state.map)
         self.simulations = simulations
         self.pb_c_base = pb_c_base
         self.pb_c_init = pb_c_init
+        self.root_dirichlet_alpha = 0.2
+        self.root_exploration_fraction = 0.25
         self.search()
 
     def getValidMoves(self, state: State, previousAction: int=None, pickedUpWildFromFaceUp: bool=False) -> list[Action]:
         """Returns a list of type Action that are possible to take from a given state of type State
         
         previousAction - context parameter for use in actions that change the game state but not whose turn it is (drawing face up card)"""
-
         nextPlayer: Agent = state.players[state.currentPlayer]
         actionList: list[Action] = []
+        zero = 0
+        one = 0
+        two = 0
+        three = 0
         # Check for 0 - Placing trains
         if previousAction == None:
             for route in state.board.edges(data=True):
@@ -119,15 +126,20 @@ class MonteCarloSearch:
             if pickedUpWildFromFaceUp == False:
                 # and the first one was not a wild
                 for color in state.faceUpCards:
-                    actionList.append(Action(1, colorPicked=[color]))
+                    if color != 'WILD':
+                        actionList.append(Action(1, colorPicked=[color]))
+                        one += 1
                 if len(state.trainCarDeck) >= 1:
                     actionList.append(Action(2))
-        elif previousAction == None:
+                    two += 1
+        elif previousAction == None or previousAction == 2:
             if len(state.faceUpCards) + len(state.trainCarDeck) >= 2:
                 for color in state.faceUpCards:
                     actionList.append(Action(1, colorPicked=[color]))
+                    one += 1
                 if len(state.trainCarDeck) >= 1:
                     actionList.append(Action(2))
+                    two += 1
         
         # Check for 3 - Draw Destination Cards
         if previousAction == 3:
@@ -135,8 +147,6 @@ class MonteCarloSearch:
                 actionList.append(Action(3, destinationsPicked=take))
         elif previousAction == None:
             actionList.append(Action(3))
-
-        return actionList
 
         # debug output of valid moves
         # i = 0
@@ -151,6 +161,8 @@ class MonteCarloSearch:
         #     elif action.action == 3:
         #         print(action.action, action.destinationsPicked)
         # print(f"Possible moves from turn {state.turn} = {i}")
+
+        return actionList
 
     def ucb_score(self, parent: Node, child: Node) -> float:
         pb_c = math.log((parent.visitCount + self.pb_c_base + 1) / self.pb_c_base) + self.pb_c_init
@@ -177,8 +189,8 @@ class MonteCarloSearch:
         if node.fromAction == 1:
             if node.fromAction.colorPicked != None:
                 pickedWild = True if node.fromAction.colorPicked == ['WILD'] else False
-        print(f"# of valid moves: {len(self.getValidMoves(node.state, node.fromAction.action, pickedWild))}")
-        for action in self.getValidMoves(node.state, node.fromAction.action, pickedWild):
+        validMoves = self.getValidMoves(node.state, node.state.followUpFromMove, pickedWild)
+        for action in validMoves:
             value = self.getValue(action, a, Dc, Dd, Dr, node.state.destinationDeal)
             policy[action] = value**2
             policySum += value
@@ -217,36 +229,37 @@ class MonteCarloSearch:
         elif action.action == 2:
             return a_p
 
-    def backprop(self):
-        pass
+    def backprop(self, searchPath: list[Node], win_p: float, toPlay: int):
+        for node in searchPath:
+            node.visitCount += 1
+            if toPlay == node.state.currentPlayer:
+                node.aggregateWinningProb += win_p
+            else:
+                node.aggregateWinningProb += (1-win_p)
+    
+    def addNoise(self, root: Node):
+        actions = root.children.keys()
+        noise = numpy.random.gamma(self.root_dirichlet_alpha, 1, len(actions))
+        for action, noise in zip(actions, noise):
+            root.children[action].priorProb = root.children[action].priorProb * (1 - self.root_exploration_fraction) + noise * self.root_exploration_fraction
 
     def search(self):
 
-        ###### Debugging
-        print(f"Stopped at player {self.root.state.players[self.root.state.currentPlayer].turnOrder} doing move {self.root.fromAction.action} at turn {self.root.state.turn}")
-        if self.root.fromAction.action == 1 or self.root.fromAction.action == 2:
-            print(self.root.fromAction.colorPicked)
-        if self.root.fromAction.action == 3:
-            print(self.root.state.destinationDeal)
-        ######
-
-        print("Evaluating root state...")
         self.evaluateNode(self.root, self.network)
-        print(f"Root state has {len(self.root.children)} children...")
+        self.addNoise(self.root)
 
-        print("Starting simulation...")
-        currentNode = self.root # Start at the beginning
         for _ in range(self.simulations):
-            searchPath: list[Node] = [] # The actions that have brought us to this state in MCTS
+            currentNode = self.root # Start at the beginning
+            searchPath: list[Node] = [currentNode] # The actions that have brought us to this state in MCTS
 
             while currentNode.isExpandedNode(): # If a node has children
-                print("Selecting child...")
-                node = self.select_child(currentNode) # Select one
-                print(f"Child is {node.fromAction.action}")
-                searchPath.append(node) # Add the child to the current path of where we are
+                node: Node = self.select_child(currentNode) # Select one
+                searchPath.append(node) # Add the child to the current path we are going down
                 currentNode = node
             
             win_p = self.evaluateNode(currentNode, self.network)
+            self.backprop(searchPath, win_p, searchPath[-1].state.currentPlayer)
+            print(len(searchPath))
             
 
             

@@ -36,7 +36,7 @@ class Node:
 class MonteCarloSearch:
     """The Monte Carlo class for the Ticket to Ride Engine, using a state, it executes the desired number of simulations on that state"""
 
-    def __init__(self, root: Node, simulations=10, pb_c_base=19652, pb_c_init=1.25) -> None:
+    def __init__(self, root: Node, simulations=5, pb_c_base=19652, pb_c_init=1.25) -> None:
         self.root: Node = root
         self.network: Network = Network(root.state.map)
         self.simulations = simulations
@@ -195,7 +195,7 @@ class MonteCarloSearch:
             policy[action] = value**2
             policySum += value
         for action, value in policy.items():
-            newState, colorPicked, destDeal = self.newState(node.state, action)
+            newState, colorPicked, destDeal, endGame = self.newState(node.state, action)
             node.children[action] = Node(newState, priorProb=value/policySum, parent=node, fromAction=action.action, color=colorPicked, destDeal=destDeal)
         return w_p
     
@@ -259,7 +259,7 @@ class MonteCarloSearch:
             
             win_p = self.evaluateNode(currentNode, self.network)
             self.backprop(searchPath, win_p, searchPath[-1].state.currentPlayer)
-            print(len(searchPath))
+            # print(len(searchPath))
             
 
             

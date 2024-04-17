@@ -149,7 +149,7 @@ class Game:
             self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': '', 'index': path[4]}) for path in getPaths(self.mapName))
         else:
             self.board.add_edges_from((path[0], path[3], {'weight': int(path[1]), 'color': path[2], 'owner': '', 'index': path[4]}) for path in getPaths(self.mapName) if self.board.has_edge(path[0], path[3]) == False)
-        
+
         # Build the train car deck
         traincar_deck = ['PINK']*12+['WHITE']*12+['BLUE']*12+['YELLOW']*12+['ORANGE']*12+['BLACK']*12+['RED']*12+['GREEN']*12+['WILD']*14
         random.shuffle(traincar_deck)
@@ -218,6 +218,8 @@ class Game:
         self.debug = False
         self.doLogs = False
         self.colorPicked: str = None
+        self.endedGame = None
+        self.lastTurn = False
 
     def placeTrains(self, player: Agent, actionDistribution: list[int], cardDistribution: list[str]) -> None:
         """
@@ -538,6 +540,14 @@ class Game:
         The action performer for frozen game states. This assumes the action given is valid and achievable.
         """
 
+        # Do global validity checks
+        if len(self.destinationsDeck) < 3 and 3 in self.validGameMoves:
+            self.validGameMoves.remove(3)
+        if len(self.trainCarDeck) == 0 and 2 in self.validGameMoves:
+            self.validGameMoves.remove(2)
+        if len(self.faceUpCards) == 0 and 1 in self.validGameMoves:
+            self.validGameMoves.remove(1)
+
         # Wants to place specific route
         if action.action == 0:
             self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
@@ -578,6 +588,10 @@ class Game:
                 self.destinationDeal = None
                 self.turn += 1
 
+        # Check if this will be the last turn
+        if player.trainsLeft < 3:
+            self.endedGame = player.turnOrder
+            self.lastTurn = True
 
     def play(self):
         """

@@ -12,7 +12,7 @@ class Node:
     
     Game state - of custom type State (build.py)
     """
-    def __init__(self, state: State, priorProb=None, parent=None, fromAction=None, color=None, destDeal=None) -> None:
+    def __init__(self, state: State, priorProb=None, parent=None, fromAction=None, color=None, destDeal=None, routePicked=None, colorsUsed=None) -> None:
         self.state = state
         self.visitCount = 1             # N(s,a)
         self.priorProb = priorProb      # P(s,a)
@@ -21,7 +21,7 @@ class Node:
         """The parent of the node - of type Node"""
         self.children: dict[Action: Node] = {}          
         """The children of the node - of type { Action: Node }"""
-        self.fromAction: Action = Action(None) if fromAction == None else Action(fromAction, colorPicked=color, destinationsPicked=destDeal)
+        self.fromAction: Action = Action(None) if fromAction == None else Action(fromAction, colorPicked=color, destinationsPicked=destDeal, routeToPlace=routePicked, colorsUsed=colorsUsed)
         """Each node that is a child stores the action (from its parent) that led to it - of custom type Action"""
 
     def getMeanWinningProb(self) -> float:
@@ -36,7 +36,7 @@ class Node:
 class MonteCarloSearch:
     """The Monte Carlo class for the Ticket to Ride Engine, using a state, it executes the desired number of simulations on that state"""
 
-    def __init__(self, root: Node, simulations=5, pb_c_base=19652, pb_c_init=1.25) -> None:
+    def __init__(self, root: Node, simulations=1000, pb_c_base=19652, pb_c_init=1.25) -> None:
         self.root: Node = root
         self.network: Network = Network(root.state.map)
         self.simulations = simulations
@@ -56,6 +56,12 @@ class MonteCarloSearch:
         one = 0
         two = 0
         three = 0
+
+        # Check if the game is over
+        if state.gameOver == True:
+            print("game is over")
+            return []
+
         # Check for 0 - Placing trains
         if previousAction == None:
             for route in state.board.edges(data=True):
@@ -174,10 +180,14 @@ class MonteCarloSearch:
     def select_child(self, node: Node) -> tuple[Action, Node]:
         """Selects the child based on the CPUCT formula in the AlphaGoZero paper"""
         max: tuple[int, Action, Node] = (0, None, None)
+        x: Node = None
         for action, child in node.children.items():
-            score = self.ucb_score(node, child)
-            if score > max[0]:
-                max = (score, action, child)
+            x = child
+            break
+            # score = self.ucb_score(node, child)
+            # if score > max[0]:
+            #     max = (score, action, child)
+        return x
         return max[2]
     
     def evaluateNode(self, node: Node, network: Network) -> float:
@@ -190,21 +200,26 @@ class MonteCarloSearch:
             if node.fromAction.colorPicked != None:
                 pickedWild = True if node.fromAction.colorPicked == ['WILD'] else False
         validMoves = self.getValidMoves(node.state, node.state.followUpFromMove, pickedWild)
+        if len(validMoves) == 0:
+            print("The game is over at this node!") # Debug
+            print(node.state.validMoves)
+            return w_p
         for action in validMoves:
             value = self.getValue(action, a, Dc, Dd, Dr, node.state.destinationDeal)
             policy[action] = value**2
             policySum += value
         for action, value in policy.items():
-            newState, colorPicked, destDeal, endGame = self.newState(node.state, action)
-            node.children[action] = Node(newState, priorProb=value/policySum, parent=node, fromAction=action.action, color=colorPicked, destDeal=destDeal)
+            action: Action
+            newState, colorPicked, destDeal = self.newState(node.state, action)
+            node.children[action] = Node(newState, priorProb=value/policySum, parent=node, fromAction=action.action, color=colorPicked, destDeal=destDeal, routePicked=action.routeToPlace, colorsUsed=action.colorsUsed)
         return w_p
     
     def newState(self, state: State, action: Action) -> State:
         """Takes a state and an action, and returns a new, deepcopied state which has carried out the action."""
         newGame = Game(state.map, state.players, False, False, False, state)
         newGame.performActionFrozen(newGame.players[state.currentPlayer], action)
-        newState = State(newGame.board, newGame.faceUpCards, newGame.trainCarDeck, newGame.destinationsDeck, newGame.players, newGame.turn, newGame.mapName, newGame.movePerforming, newGame.wildFromFaceUp, newGame.destinationDeal, newGame.validGameMoves, newGame.actionMap)
-        return newState, newGame.colorPicked, newGame.destinationDeal
+        newState = State(newGame.board, newGame.faceUpCards, newGame.trainCarDeck, newGame.destinationsDeck, newGame.players, newGame.turn, newGame.mapName, newGame.movePerforming, newGame.wildFromFaceUp, newGame.destinationDeal, newGame.validGameMoves, newGame.actionMap, newGame.lastTurn, newGame.endedGame, newGame.gameOver)
+        return newState, newGame.colorPicked, newGame.destinationDeal, 
 
     def getValue(self, action: Action, a: list[float], Dc: list[float], Dd: list[float], Dr: list[float], destDeal: list[list]) -> float:
         """Takes the ouput of the network and a valid action to take and returns a float representing how 'confident' the network is in making that move. The higher the float the higher the confidence."""
@@ -256,10 +271,12 @@ class MonteCarloSearch:
                 node: Node = self.select_child(currentNode) # Select one
                 searchPath.append(node) # Add the child to the current path we are going down
                 currentNode = node
-            
+            print(node.fromAction)
+            print(node.state.currentPlayer)
+            # input()
             win_p = self.evaluateNode(currentNode, self.network)
             self.backprop(searchPath, win_p, searchPath[-1].state.currentPlayer)
-            # print(len(searchPath))
+            print(len(searchPath))
             
 
             

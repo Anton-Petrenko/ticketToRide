@@ -53,7 +53,7 @@ def play(map: str, players: list[Agent], logs: bool, debug: bool, runs: int, dra
         print(f"Completed in {round(end-start, 2)} seconds")
     
     # Testing MCTS
-    state = State(game.board, game.faceUpCards, game.trainCarDeck, game.destinationsDeck, game.players, game.turn, game.mapName, game.movePerforming, game.wildFromFaceUp, game.destinationDeal, game.validGameMoves, game.actionMap)
+    state = State(game.board, game.faceUpCards, game.trainCarDeck, game.destinationsDeck, game.players, game.turn, game.mapName, game.movePerforming, game.wildFromFaceUp, game.destinationDeal, game.validGameMoves, game.actionMap, game.lastTurn, game.endedGame, game.gameOver)
     if state.followUpFromMove == 1 or state.followUpFromMove == 2:
         color = game.colorPicked
         node = Node(state, fromAction=state.followUpFromMove, color=[color])

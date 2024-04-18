@@ -19,7 +19,7 @@ class State:
     """
     A deepcopy of a game state (so that uses of the state class do not modify any existing Game)
     """
-    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], validMoves: list[int], actionMap: list) -> None:
+    def __init__(self, board: nx.MultiGraph, faceUpCards: list[str], trainCarDeck: deque[str], destinationDeck: deque[list[str]], players: list[Agent], turn: int, map: str, followUpFromMove: int, wildFromFaceUp: bool, destinationDeal: list[list], validMoves: list[int], actionMap: list, lastTurn: bool, endedGame: bool, gameOver: bool) -> None:
         self.map = map
         self.turn = turn
         self.players = players
@@ -33,6 +33,9 @@ class State:
         self.destinationDeal = deepcopy(destinationDeal)
         self.validMoves = validMoves
         self.actionMap = actionMap
+        self.lastTurn = lastTurn # Whether we are currently on the last turn
+        self.endedGame = endedGame # Turn position of player who ended the game
+        self.gameOver = gameOver
 
 class Action:
     """
@@ -44,6 +47,8 @@ class Action:
 
         self.action = action
         """Turn action indexes: 0 - Place Trains, 1 - Draw (Face Up), 2 - Draw (Face Down), 3 - Draw (Destination Cards)"""
+        self.routeToPlace = None
+        self.colorsUsed = None
 
         if self.action == 0:
 
@@ -105,6 +110,8 @@ class Game:
         if state != None:
             self.setGame(state)
         else:
+            self.endedGame = False
+            self.lastTurn = None
             self.logs = []
             self.debug = debug
             self.doLogs = logs
@@ -218,8 +225,9 @@ class Game:
         self.debug = False
         self.doLogs = False
         self.colorPicked: str = None
-        self.endedGame = None
-        self.lastTurn = False
+        self.endedGame = state.endedGame
+        self.lastTurn = state.lastTurn
+        self.gameOver = state.gameOver
 
     def placeTrains(self, player: Agent, actionDistribution: list[int], cardDistribution: list[str]) -> None:
         """
@@ -346,6 +354,7 @@ class Game:
             if self.doLogs:
                 self.logs = self.logs + [f"   PLAYER {player.turnOrder} has no more valid moves. Game must end. {self.validGameMoves}\n"]
             self.gameOver = True
+
         if canAfford == False:
             return False
     
@@ -547,10 +556,31 @@ class Game:
             self.validGameMoves.remove(2)
         if len(self.faceUpCards) == 0 and 1 in self.validGameMoves:
             self.validGameMoves.remove(1)
+        
+        if self.lastTurn and player.turnOrder == self.endedGame:
+            self.gameOver = True
 
         # Wants to place specific route
         if action.action == 0:
-            self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
+            ###
+            colorIndexes = listColors()
+            for agent in self.players:
+                for color_ in action.colorsUsed:
+                    if agent.colorCounting[player.turnOrder][colorIndexes.index(color_)] != 0:
+                        agent.colorCounting[player.turnOrder][colorIndexes.index(color_)] -= 1
+                    else:
+                        agent.colorCounting[player.turnOrder][9] -= 1
+            # 1. Update the player train count and the player hand
+            player.points += pointsByLength[action.routeToPlace[2]['weight']]
+            player.trainsLeft = player.trainsLeft - action.routeToPlace[2]['weight']
+            for color in action.colorsUsed:
+                player.hand_trainCards.remove(color)
+            # 2. Update the game board
+            for path in self.board.get_edge_data(action.routeToPlace[0], action.routeToPlace[1]).values():
+                if path['owner'] == '':
+                    path['owner'] = player.turnOrder
+            ###
+            # self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
             self.turn += 1
         elif action.action == 1:
             if self.movePerforming != None:
@@ -597,7 +627,7 @@ class Game:
         """
         Plays the whole game out once.
         """
-        lastTurn = None
+        self.lastTurn = None
         endedGame = None
         while self.gameOver == False:
             for player in self.players:
@@ -647,9 +677,9 @@ class Game:
                         self.gameOver = True
                         break
                     if player.trainsLeft < 3:
-                        lastTurn = True
+                        self.lastTurn = True
                         self.gameOver = True
-                        endedGame = player.turnOrder
+                        self.endedGame = player.turnOrder
                         if self.doLogs:
                             self.logs = self.logs + [f"\nPLAYER {player.turnOrder} INITIATES LAST ROUND\n"]
                         break
@@ -659,13 +689,13 @@ class Game:
                 if self.gameOver == True:
                     break
 
-        if lastTurn == True:
-            if endedGame == len(self.players) - 1:
+        if self.lastTurn == True:
+            if self.endedGame == len(self.players) - 1:
                 playerOrder = [z for z in range(len(self.players))]
-            elif endedGame == 0:
+            elif self.endedGame == 0:
                 playerOrder = [z for z in range(1, len(self.players))] + [0]
             else:
-                playerOrder = [z for z in range(endedGame, len(self.players))] + [x for x in range(0, endedGame)]
+                playerOrder = [z for z in range(self.endedGame, len(self.players))] + [x for x in range(0, self.endedGame)]
 
             for playerIndex in playerOrder:
                 if self.doLogs:
@@ -676,6 +706,8 @@ class Game:
                     self.logs = self.logs + addLogs
                 self.performAction(self.players[playerIndex])
                 self.turn += 1
+        
+        self.gameOver = False
 
     def endGame(self):
         """

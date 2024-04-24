@@ -23,6 +23,7 @@ class Node:
         """The children of the node - of type { Action: Node }"""
         self.fromAction: Action = Action(None) if fromAction == None else Action(fromAction, colorPicked=color, destinationsPicked=destDeal, routeToPlace=routePicked, colorsUsed=colorsUsed)
         """Each node that is a child stores the action (from its parent) that led to it - of custom type Action"""
+        self.terminalState=False
 
     def getMeanWinningProb(self) -> float:
         """Return Q(s,a) - the mean winning probaility for a node/state"""
@@ -36,7 +37,8 @@ class Node:
 class MonteCarloSearch:
     """The Monte Carlo class for the Ticket to Ride Engine, using a state, it executes the desired number of simulations on that state"""
 
-    def __init__(self, root: Node, simulations=1000, pb_c_base=19652, pb_c_init=1.25) -> None:
+    def __init__(self, root: Node, simulations=100, pb_c_base=19652, pb_c_init=1.25) -> None:
+        self.logs = []
         self.root: Node = root
         self.network: Network = Network(root.state.map)
         self.simulations = simulations
@@ -44,6 +46,7 @@ class MonteCarloSearch:
         self.pb_c_init = pb_c_init
         self.root_dirichlet_alpha = 0.2
         self.root_exploration_fraction = 0.25
+        self.numberSamplingMoves = 15
         self.search()
 
     def getValidMoves(self, state: State, previousAction: int=None, pickedUpWildFromFaceUp: bool=False) -> list[Action]:
@@ -59,7 +62,6 @@ class MonteCarloSearch:
 
         # Check if the game is over
         if state.gameOver == True:
-            print("game is over")
             return []
 
         # Check for 0 - Placing trains
@@ -151,7 +153,7 @@ class MonteCarloSearch:
         if previousAction == 3:
             for take in listDestTakes():
                 actionList.append(Action(3, destinationsPicked=take))
-        elif previousAction == None:
+        elif previousAction == None and len(state.destinationDeck) > 2:
             actionList.append(Action(3))
 
         # debug output of valid moves
@@ -182,12 +184,14 @@ class MonteCarloSearch:
         max: tuple[int, Action, Node] = (0, None, None)
         x: Node = None
         for action, child in node.children.items():
-            x = child
-            break
-            # score = self.ucb_score(node, child)
-            # if score > max[0]:
-            #     max = (score, action, child)
-        return x
+            # Debugging terminal state
+            # x = child
+            # y = action
+            # break
+            score = self.ucb_score(node, child)
+            if score > max[0]:
+                max = (score, action, child)
+        # return y, x
         return max[2]
     
     def evaluateNode(self, node: Node, network: Network) -> float:
@@ -200,10 +204,12 @@ class MonteCarloSearch:
             if node.fromAction.colorPicked != None:
                 pickedWild = True if node.fromAction.colorPicked == ['WILD'] else False
         validMoves = self.getValidMoves(node.state, node.state.followUpFromMove, pickedWild)
-        if len(validMoves) == 0:
-            print("The game is over at this node!") # Debug
-            print(node.state.validMoves)
-            return w_p
+        # if len(validMoves) == 0:
+        #     print("evaluateNode: The game is over at this node! Printing log...") # Debug
+        #     file = open("log2.txt", "w")
+        #     file.writelines(self.logs)
+        #     quit()
+        #     return w_p
         for action in validMoves:
             value = self.getValue(action, a, Dc, Dd, Dr, node.state.destinationDeal)
             policy[action] = value**2
@@ -257,6 +263,11 @@ class MonteCarloSearch:
         noise = numpy.random.gamma(self.root_dirichlet_alpha, 1, len(actions))
         for action, noise in zip(actions, noise):
             root.children[action].priorProb = root.children[action].priorProb * (1 - self.root_exploration_fraction) + noise * self.root_exploration_fraction
+    
+    def select_action(self, root: Node):
+        pass
+        
+
 
     def search(self):
 
@@ -268,15 +279,24 @@ class MonteCarloSearch:
             searchPath: list[Node] = [currentNode] # The actions that have brought us to this state in MCTS
 
             while currentNode.isExpandedNode(): # If a node has children
-                node: Node = self.select_child(currentNode) # Select one
+                node = self.select_child(currentNode) # Select one
                 searchPath.append(node) # Add the child to the current path we are going down
                 currentNode = node
-            print(node.fromAction)
-            print(node.state.currentPlayer)
-            # input()
+            
+            # TERMINAL STATE DEBUGGING
+            # print(f"search: turn {node.state.turn} current node came from {node.fromAction}, player to play is player {node.state.currentPlayer}")
+            # self.logs = self.logs + [f"\nTURN {node.state.turn} FROM {action}\n", f"{node.state.players[node.state.currentPlayer].turnOrder} : {node.state.players[node.state.currentPlayer].trainsLeft}, {node.state.players[node.state.currentPlayer].hand_trainCards}\n", f"  {node.state.faceUpCards}\n", f" {node.state.destinationDeck}\n", f" {node.state.trainCarDeck}\n"]
+            # print(f"search: search path length is {len(searchPath)}")
+            print(len(searchPath))
             win_p = self.evaluateNode(currentNode, self.network)
             self.backprop(searchPath, win_p, searchPath[-1].state.currentPlayer)
-            print(len(searchPath))
+            # If we found a terminal state
+            if len(node.children) == 0:
+                node.terminalState = True
+                print("Found terminal state...")
+        
+        return select_action()
+        
             
 
             

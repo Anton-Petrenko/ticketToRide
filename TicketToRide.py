@@ -7,7 +7,7 @@ games = 1            # Games to simulate
 logs = True          # Basic logging to log.txt (only shows last played game)
 debug = False        # Detailed logging to log.txt
 drawGame = False     # See the game results (only relevant if simulating one game)
-agents = [Random("Larry"), Random("David")] # Player specification 
+agents = [Random("Larry"), Random("David"), Random("Test")] # Player specification 
 
 # MCTS Testing
 ticketToRideGame = play(map, agents, logs, debug, games, drawGame)

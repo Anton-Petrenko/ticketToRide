@@ -562,8 +562,8 @@ class Game:
 
         # Wants to place specific route
         if action.action == 0:
-            ###
             colorIndexes = listColors()
+            # color counting
             for agent in self.players:
                 for color_ in action.colorsUsed:
                     if agent.colorCounting[player.turnOrder][colorIndexes.index(color_)] != 0:
@@ -579,8 +579,6 @@ class Game:
             for path in self.board.get_edge_data(action.routeToPlace[0], action.routeToPlace[1]).values():
                 if path['owner'] == '':
                     path['owner'] = player.turnOrder
-            ###
-            # self.placeTrains(player, [action.routeToPlace[2]['index']], action.colorsUsed)
             self.turn += 1
         elif action.action == 1:
             if self.movePerforming != None:
@@ -706,7 +704,6 @@ class Game:
                     self.logs = self.logs + addLogs
                 self.performAction(self.players[playerIndex])
                 self.turn += 1
-        
         self.gameOver = False
 
     def endGame(self):
@@ -726,7 +723,7 @@ class Game:
             edges = [edge for edge in self.board.edges(data=True) if edge[2]['owner'] == player.turnOrder]
             boardPlaced = nx.MultiGraph(edges)
             for route in player.hand_destinationCards:
-                try:
+                try: 
                     completed = nx.has_path(boardPlaced, route[0], route[2])
                 except:
                     completed = False

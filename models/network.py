@@ -2,11 +2,18 @@ import random
 from engine.build import State
 from engine.data import listColors
 from engine.players import Agent
+# import tensorflow as tf
+# import keras
+# from keras import layers
 
 class Network:
     """The actual network object that powers the AI agent"""
     def __init__(self, map: str) -> None:
-        self.map = map     
+        self.map = map
+        
+        # Build the network
+        # model = keras.Sequential()
+        # model.add(layers.Embedding)
     
     def play(self, state: State):
         """
@@ -68,6 +75,8 @@ class Network:
             colorsCount += currentPlayer.colorCounting[i % len(state.players)]
         while len(colorsCount) != 39:
             colorsCount.append(0)
+        
+        print(len(destAvail), len(destHand), len(destCount), len(routesTaken), len(colorsAvail), len(colorsCount))
 
         # network.output(param: the long vector)
 
